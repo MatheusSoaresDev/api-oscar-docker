@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('oscars', function (Blueprint $table) {
-            $table->id();
+        Schema::create('oscar', static function (Blueprint $table) {
+            $table->uuid("id")->primary();
+            $table->string("edition")->unique();
+            $table->string("local");
+            $table->date("date");
+            $table->string("city");
+            $table->year("year")->unique();
             $table->timestamps();
         });
     }
