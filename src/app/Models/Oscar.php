@@ -40,6 +40,6 @@ class Oscar extends Model
 
     public function curiosities(): HasMany
     {
-        //return $this->hasMany(Curiosity::class);
+        return $this->hasMany(Curiosity::class);
     }
 }

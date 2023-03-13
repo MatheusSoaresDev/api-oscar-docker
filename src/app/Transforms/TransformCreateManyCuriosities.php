@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Transformers;
+namespace App\Transforms;
+
+use App\Transforms\TransformInterface;
 
 class TransformCreateManyCuriosities implements TransformInterface
 {
 
-    public static function handle(array $data)
+    public static function handle(array $data): array
     {
         $result = [];
 
         foreach ($data["curiosities"] as $curiosity) {
-            array_push($result, ["content" => $curiosity]);
+            $result[] = ["content" => $curiosity];
         }
         return $result;
     }

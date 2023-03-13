@@ -3,10 +3,13 @@
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateOscarRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -23,15 +26,42 @@ class CreateOscarRequest extends FormRequest
     public function rules(): array
     {
         return [
-            /*"year" => "required|unique:oscar",
+            "year" => "required|unique:oscar",
             "edition" => "required|unique:oscar",
             "local" => "required",
             "date" => "required|date_format:Y-m-d|after:".date("1929-05-16")."|before_or_equal:".date("Y-m-d"),
             "city" => "required",
-            "hosteds" => "required|array",
-            "hosteds.*" => "required",
+            "hosts" => "required|array",
+            "hosts.*" => "required",
             "curiosities" => "nullable|array",
-            "curiosities.*" => "required",*/
+            "curiosities.*" => "required",
         ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            "year.unique" => "Exists a ceremony with the informed year in date.",
+        ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $date = $this->get("date");
+        $newDate = new \DateTime($date);
+        $year = $newDate->format("Y");
+
+        $this->merge(["year" => $year]);
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        $response = response()->json([
+            "timestamp" => now(),
+            "status" => 404,
+            "message" => "Errors has been found.",
+            "errors" => $validator->errors()
+        ], 404);
+
+        throw new HttpResponseException($response);
     }
 }

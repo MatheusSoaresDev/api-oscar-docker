@@ -4,38 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e9a512-6881-4af6-a514-9963eccbd794" name="Changes" comment="removendo pasta mysql">
-      <change afterPath="$PROJECT_DIR$/src/app/Console/Commands/ContentsRepositories/RepositoryClass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/HostedDuplicatedNames.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/NotEntityDefined.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/OscarQueryDateException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/OscarQueryEditionException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/RelationExistsException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/HostRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/BaseEloquentRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentHostRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/OscarExceptions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Responses/Contracts/ResponseInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Responses/GenericException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Responses/NotFoundRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Responses/SuccessRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyCuriosities.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyHostsOscar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Transforms/TransformInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="07e9a512-6881-4af6-a514-9963eccbd794" name="Changes" comment="Repository de oscar e host finalizado.">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/HostController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Requests/CreateOscarRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Requests/CreateOscarRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Models/Oscar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Oscar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Observers/OscarObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Observers/OscarObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/RepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/migrations/2023_03_12_224639_create_hosts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/2014_10_12_100000_create_password_reset_tokens_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/HostRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentHostRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyCuriosities.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyCuriosities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyHostsOscar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyHostsOscar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +198,7 @@
       <workItem from="1678493057619" duration="2161000" />
       <workItem from="1678552096759" duration="1650000" />
       <workItem from="1678557040448" duration="13327000" />
-      <workItem from="1678637828983" duration="15648000" />
+      <workItem from="1678637828983" duration="23061000" />
     </task>
     <task id="LOCAL-00001" summary="mysql folder">
       <created>1678638055284</created>
@@ -234,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678639135957</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Repository de oscar e host finalizado.">
+      <created>1678667436474</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678667436474</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +241,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mysql folder" />
     <MESSAGE value="removendo pasta mysql" />
-    <option name="LAST_COMMIT_MESSAGE" value="removendo pasta mysql" />
+    <MESSAGE value="Repository de oscar e host finalizado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Repository de oscar e host finalizado." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

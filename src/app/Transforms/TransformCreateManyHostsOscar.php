@@ -6,7 +6,7 @@ use App\Transforms\TransformInterface;
 
 class TransformCreateManyHostsOscar implements TransformInterface
 {
-    public static function handle(array $data)
+    public static function handle(array $data): array
     {
         $result = [];
 

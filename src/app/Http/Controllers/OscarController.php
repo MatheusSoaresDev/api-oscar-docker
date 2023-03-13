@@ -20,7 +20,7 @@ class OscarController extends Controller
         return $this->exception->store($data);
     }
 
-    public function get(int $year): JsonResponse
+    public function findOscarByYear(int $year): JsonResponse
     {
         return $this->exception->findOscarByYear($year);
     }
