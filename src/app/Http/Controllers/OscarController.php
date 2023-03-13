@@ -3,21 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateOscarRequest;
-use App\Models\Oscar;
+use App\Repositories\Exceptions\OscarExceptions;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class OscarController extends Controller
 {
-    private $oscar;
-    public function __construct()
+    private $exception;
+    public function __construct(OscarExceptions $exception)
     {
-        $this->oscar = app(Oscar::class);
+        $this->exception = $exception;
     }
 
-    public function create(CreateOscarRequest $request): JsonResponse
+    public function store(CreateOscarRequest $request): JsonResponse
     {
-        $data = $request->only(["year", "edition", "local", "date", "city", "hosteds", "curiosities"]);
-        return $this->oscar->create($data);
+        $data = $request->only(["year", "edition", "local", "date", "city", "hosts", "curiosities"]);
+        return $this->exception->store($data);
+    }
+
+    public function get(int $year): JsonResponse
+    {
+        return $this->exception->findOscarByYear($year);
     }
 }

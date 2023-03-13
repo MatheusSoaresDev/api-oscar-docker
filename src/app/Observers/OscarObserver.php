@@ -2,18 +2,12 @@
 
 namespace App\Observers;
 
+use App\Exceptions\OscarQueryDateException;
+use App\Exceptions\OscarQueryEditionException;
 use App\Models\Oscar;
 
 class OscarObserver
 {
-    /**
-     * Handle the Oscar "created" event.
-     */
-    public function created(Oscar $oscar): void
-    {
-        //
-    }
-
     public function creating(Oscar $oscar): void
     {
         $date = new \DateTime($oscar->date);
@@ -22,35 +16,34 @@ class OscarObserver
         $oscar->year = $year;
     }
 
-    /**
-     * Handle the Oscar "updated" event.
-     */
-    public function updated(Oscar $oscar): void
+    public function updating(Oscar $oscar): void
     {
-        //
+        $date = new \DateTime($oscar->date);
+        $year = $date->format("Y");
+
+        $oscar->year = $year;
+        $this->verifyExistsEditionWithNameUpdated($oscar);
+        $this->verifyExistsCeremonyYear($oscar);
+    }
+
+    private function verifyExistsEditionWithNameUpdated(Oscar $oscar): void
+    {
+        $otherOscar = Oscar::where("edition", $oscar->edition)->where("id", "!=", $oscar->id)->first();
+
+        if($otherOscar){
+            throw new OscarQueryEditionException("Oscar ceremony already exists with edition name: $oscar->edition", 500);
+        }
     }
 
     /**
-     * Handle the Oscar "deleted" event.
+     * @throws OscarQueryDateException
      */
-    public function deleted(Oscar $oscar): void
+    private function verifyExistsCeremonyYear(Oscar $oscar): void
     {
-        //
-    }
+        $otherOscar = Oscar::whereYear("date", $oscar->year)->where("id", "<>", $oscar->id)->first();
 
-    /**
-     * Handle the Oscar "restored" event.
-     */
-    public function restored(Oscar $oscar): void
-    {
-        //
-    }
-
-    /**
-     * Handle the Oscar "force deleted" event.
-     */
-    public function forceDeleted(Oscar $oscar): void
-    {
-        //
+        if($otherOscar){
+            throw new OscarQueryDateException("Oscar ceremony already exists with date a year: $oscar->year.", 500);
+        }
     }
 }

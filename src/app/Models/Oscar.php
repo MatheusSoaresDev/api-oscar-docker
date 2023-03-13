@@ -26,16 +26,16 @@ class Oscar extends Model
         "local",
         "date",
         "city",
-        "hosteds",
+        "hosts",
         "curiosities",
         "awards"
     ];
     public $timestamps = true;
     protected $keyType = 'string';
 
-    public function hosteds(): HasMany
+    public function hosts(): HasMany
     {
-        //return $this->hasMany(Hosted::class);
+        return $this->hasMany(Host::class);
     }
 
     public function curiosities(): HasMany

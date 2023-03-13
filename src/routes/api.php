@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post("/oscar", [OscarController::class, "create"]);
+/* Routes Oscar Ceremony */
+Route::post("/oscar", [OscarController::class, "store"]);
+Route::get("/oscar/{year}", [OscarController::class, "get"]);
+Route::put("/oscar", [OscarController::class, "update"]);
+Route::delete("/oscar/{year}", [OscarController::class, "delete"]);

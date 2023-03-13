@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories\Contracts;
+
 interface RepositoryInterface
 {
     public function store(array $data);
@@ -7,6 +9,4 @@ interface RepositoryInterface
     public function delete(string $id);
     public function getAll();
     public function findById(string $id);
-    public function findWhere(string $column, string $valor);
-    public function findWhereFirst(string $column, string $valor);
 }
