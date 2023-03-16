@@ -18,6 +18,7 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
     {
         return EloquentOscarRepository::class;
     }
+
     public function store(array $data): JsonResponse
     {
         try {
@@ -62,7 +63,12 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
 
     public function findById(string $id):JsonResponse
     {
-        // TODO: Implement findById() method.
+        try {
+            $oscar = $this->repository->findById($id);
+            return SuccessRequest::handle("The ceremony has been found.", $oscar->toArray());
+        } catch(ModelNotFoundException $e){
+            return NotFoundRequest::handle($e, "id", $id, "The ceremony hasn't been found with id: %s");
+        }
     }
 
     public function findOscarByYear(int $year):JsonResponse

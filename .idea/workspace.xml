@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e9a512-6881-4af6-a514-9963eccbd794" name="Changes" comment="Criação de premios iniciado.">
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/Exception.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/RepositoryNotExists.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/ExceptionRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarExceptionInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/BaseEloquentException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="07e9a512-6881-4af6-a514-9963eccbd794" name="Changes" comment="Endpoints do oscar finalizado.">
+      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/NotRepositoryExceptionDefined.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardArtistExceptionInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardArtistRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardArtistRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardArtistException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/OscarQueryEditionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Exceptions/OscarQueryEditionException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/Exception.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Exceptions/Exception.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/AwardArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/AwardArtistController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Models/AwardArtist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/AwardArtist.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/RepositoryInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/BaseEloquentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/BaseEloquentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/OscarExceptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +205,7 @@
       <workItem from="1678819382025" duration="146000" />
       <workItem from="1678819540491" duration="670000" />
       <workItem from="1678892000231" duration="7769000" />
-      <workItem from="1678910962664" duration="5470000" />
+      <workItem from="1678910962664" duration="10642000" />
     </task>
     <task id="LOCAL-00001" summary="mysql folder">
       <created>1678638055284</created>
@@ -239,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678765524938</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Endpoints do oscar finalizado.">
+      <created>1678926843568</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678926843568</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +264,8 @@
     <MESSAGE value="removendo pasta mysql" />
     <MESSAGE value="Repository de oscar e host finalizado." />
     <MESSAGE value="Criação de premios iniciado." />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação de premios iniciado." />
+    <MESSAGE value="Endpoints do oscar finalizado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Endpoints do oscar finalizado." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

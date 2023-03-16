@@ -9,6 +9,9 @@ class BaseEloquentRepository implements RepositoryInterface
 {
     protected $entity;
 
+    /**
+     * @throws NotEntityDefined
+     */
     public function __construct()
     {
         $this->entity = $this->resolveEntity();
@@ -28,12 +31,12 @@ class BaseEloquentRepository implements RepositoryInterface
 
     public function delete(string $id)
     {
-        return $this->entity->find($id)->delete();
+        return $this->findById($id)->delete();
     }
 
     public function findById(string $id)
     {
-        return $this->entity->find($id);
+        return $this->entity->findOrFail($id);
     }
 
     public function resolveEntity()
