@@ -22,8 +22,20 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
         return $oscar;
     }
 
+    public function update(string $id, array $data)
+    {
+        $uuid = $this->findOscarByYear($id);
+        return parent::update($uuid->id, $data);
+    }
+
     public function findOscarByYear(int $year)
     {
         return $this->entity->whereYear("date", $year)->with(["hosts", "curiosities"])->firstOrFail();
+    }
+
+    public function delete(string $id)
+    {
+        $uuid = $this->findOscarByYear($id);
+        return parent::delete($uuid->id);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\HostRepositoryInterface;
+use App\Repositories\Contracts\OscarExceptionInterface;
 use App\Repositories\Contracts\OscarRepositoryInterface;
-use App\Repositories\Core\Eloquent\EloquentHostRepository;
 use App\Repositories\Core\Eloquent\EloquentOscarRepository;
+use App\Repositories\Exceptions\Eloquent\EloquentOscarException;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -15,15 +15,10 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(
-            OscarRepositoryInterface::class,
-            EloquentOscarRepository::class
-        );
-
-        $this->app->bind(
-            HostRepositoryInterface::class,
-            EloquentHostRepository::class
-        );
+        /* Oscar Ceremony Repositories */
+        $this->app->bind(OscarRepositoryInterface::class, EloquentOscarRepository::class);
+        $this->app->bind(OscarExceptionInterface::class, EloquentOscarException::class);
+        /* ------------------- */
     }
 
     /**

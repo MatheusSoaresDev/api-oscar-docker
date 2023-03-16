@@ -4,18 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e9a512-6881-4af6-a514-9963eccbd794" name="Changes" comment="Repository de oscar e host finalizado.">
+    <list default="true" id="07e9a512-6881-4af6-a514-9963eccbd794" name="Changes" comment="Criação de premios iniciado.">
+      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/Exception.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/RepositoryNotExists.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/ExceptionRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarExceptionInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/BaseEloquentException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/HostController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/OscarQueryEditionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Exceptions/OscarQueryEditionException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Requests/CreateOscarRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Requests/CreateOscarRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Models/Oscar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Oscar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/HostRepositoryInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentHostRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/RepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/BaseEloquentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/BaseEloquentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyCuriosities.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyCuriosities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyHostsOscar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Transforms/TransformCreateManyHostsOscar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/OscarExceptions.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +29,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -161,14 +167,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/mt/Documents/Projetos/Laravel/api-oscar-docker/src/app/Transforms",
+    "last_opened_file_path": "/home/mt/Documents/Projetos/Laravel/api-oscar-docker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "Errors",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -199,6 +205,11 @@
       <workItem from="1678552096759" duration="1650000" />
       <workItem from="1678557040448" duration="13327000" />
       <workItem from="1678637828983" duration="23061000" />
+      <workItem from="1678819132789" duration="233000" />
+      <workItem from="1678819382025" duration="146000" />
+      <workItem from="1678819540491" duration="670000" />
+      <workItem from="1678892000231" duration="7769000" />
+      <workItem from="1678910962664" duration="5470000" />
     </task>
     <task id="LOCAL-00001" summary="mysql folder">
       <created>1678638055284</created>
@@ -221,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678667436474</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Criação de premios iniciado.">
+      <created>1678765524938</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678765524938</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +260,8 @@
     <MESSAGE value="mysql folder" />
     <MESSAGE value="removendo pasta mysql" />
     <MESSAGE value="Repository de oscar e host finalizado." />
-    <option name="LAST_COMMIT_MESSAGE" value="Repository de oscar e host finalizado." />
+    <MESSAGE value="Criação de premios iniciado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação de premios iniciado." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

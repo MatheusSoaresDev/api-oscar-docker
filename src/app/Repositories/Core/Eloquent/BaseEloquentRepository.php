@@ -22,17 +22,13 @@ class BaseEloquentRepository implements RepositoryInterface
     public function update(string $id, array $data)
     {
         $entity = $this->findById($id);
-        return $entity->update($data);
+        $entity->update($data);
+        return $entity;
     }
 
     public function delete(string $id)
     {
         return $this->entity->find($id)->delete();
-    }
-
-    public function getAll()
-    {
-        return $this->entity->all();
     }
 
     public function findById(string $id)
@@ -42,10 +38,6 @@ class BaseEloquentRepository implements RepositoryInterface
 
     public function resolveEntity()
     {
-        if (!method_exists($this, 'entity')) {
-            throw new NotEntityDefined;
-        }
-
-        return app($this->entity());
+        return !method_exists($this, 'entity') ? throw new NotEntityDefined : app($this->entity());
     }
 }

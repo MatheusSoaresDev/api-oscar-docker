@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Exceptions;
-
-use Exception;
 use Illuminate\Http\JsonResponse;
 
-class OscarQueryEditionException extends Exception
+class Exception extends \Exception
 {
     public function handle($field = null, $value = null, $message = null): JsonResponse
     {

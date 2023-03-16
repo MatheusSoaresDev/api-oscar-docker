@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\OscarController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 /* Routes Oscar Ceremony */
 Route::post("/oscar", [OscarController::class, "store"]);
 Route::get("/oscar/{year}", [OscarController::class, "findOscarByYear"]);
-Route::put("/oscar", [OscarController::class, "update"]);
+Route::put("/oscar/{year}", [OscarController::class, "update"]);
 Route::delete("/oscar/{year}", [OscarController::class, "delete"]);
