@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repositories\Exceptions\Eloquent;
-use App\Exceptions\OscarQueryDateException;
+
 use App\Exceptions\OscarQueryEditionException;
 use App\Exceptions\RelationNotExistsException;
 use App\Repositories\Contracts\OscarExceptionInterface;

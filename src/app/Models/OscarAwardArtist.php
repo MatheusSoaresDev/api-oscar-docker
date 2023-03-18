@@ -20,22 +20,25 @@ class OscarAwardArtist extends Model
         "id",
         //"oscar_id",
         //"awardartist_id",
-        "awardArtist"
+        "award"
     ];
     public $timestamps = true;
     protected $keyType = 'string';
+    protected $table = 'oscar_award_artist';
 
     public function oscar():BelongsTo
     {
         return $this->belongsTo(Oscar::class);
     }
 
-    /* Voltar nessa parte de relacao n pra n */
-
     public function awardArtist(): HasMany
     {
         return $this->hasMany(AwardArtist::class, 'id', 'awardartist_id');
     }
 
-    /* --------------------------- */
+    /* Aliases */
+    public function award(): HasMany
+    {
+        return $this->awardArtist();
+    }
 }

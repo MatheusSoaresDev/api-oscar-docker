@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/commands" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" afterDir="false" />
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Associar premiacoes à cerimonia finalizado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/HostedDuplicatedNames.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/OscarQueryDateException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/RelationExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Exceptions/RelationNotExistsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Models/AwardArtist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/AwardArtist.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Models/Oscar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Oscar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardArtistExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardArtistExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardArtistRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardArtistRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardArtistRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Models/OscarAwardArtist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/OscarAwardArtist.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardArtistException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardArtistException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Responses/GenericException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Responses/GenericException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,11 +175,23 @@
       <option name="presentableId" value="Default" />
       <updated>1679070405063</updated>
       <workItem from="1679070406398" duration="9755000" />
-      <workItem from="1679100538552" duration="3161000" />
+      <workItem from="1679100538552" duration="5190000" />
     </task>
+    <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
+      <created>1679116832958</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679116832958</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Associar premiacoes à cerimonia finalizado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Associar premiacoes à cerimonia finalizado." />
   </component>
 </project>
