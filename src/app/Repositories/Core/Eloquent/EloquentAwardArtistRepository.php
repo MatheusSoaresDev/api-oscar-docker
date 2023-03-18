@@ -11,8 +11,9 @@ class EloquentAwardArtistRepository extends BaseEloquentRepository implements Aw
     {
         return AwardArtist::class;
     }
-    public function bindOscarAwardArtist(array $data)
+
+    public function findAwardArtistByName(string $name)
     {
-        // TODO: Implement bindOscarAwardArtist() method.
+        // TODO: Implement findAwardArtistByName() method.
     }
 }

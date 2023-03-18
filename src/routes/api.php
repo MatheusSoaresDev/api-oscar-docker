@@ -21,6 +21,9 @@ Route::get("/oscar/{year}", [OscarController::class, "findOscarByYear"]);
 Route::put("/oscar/{year}", [OscarController::class, "update"]);
 Route::delete("/oscar/{year}", [OscarController::class, "delete"]);
 
+Route::post("/oscar/award/artist/{year}/{awardArtistId}", [OscarController::class, "addAwardToOscar"]);
+Route::delete("/oscar/award/artist/{year}/{awardArtistId}", [OscarController::class, "removeAwardFromOscar"]);
+
 /* Awards Artists */
 Route::post("/award/artist", [AwardArtistController::class, "store"]);
 Route::get("/award/artist/{id}", [AwardArtistController::class, "findById"]);

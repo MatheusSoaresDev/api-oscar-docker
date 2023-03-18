@@ -4,5 +4,5 @@ namespace App\Repositories\Contracts;
 
 interface AwardArtistRepositoryInterface
 {
-    public function bindOscarAwardArtist(array $data);
+    public function findAwardArtistByName(string $name);
 }

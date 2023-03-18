@@ -10,7 +10,6 @@ use App\Responses\GenericException;
 use App\Responses\NotFoundRequest;
 use App\Responses\SuccessRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 
@@ -73,8 +72,8 @@ class EloquentAwardArtistException extends BaseEloquentException implements Awar
         }
     }
 
-    public function bindOscarAwardArtist(array $data): JsonResponse
+    public function findAwardArtistByName(string $name): JsonResponse
     {
-        // TODO: Implement bindOscarAwardArtist() method.
+        // TODO: Implement findAwardArtistByName() method.
     }
 }

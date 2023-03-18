@@ -6,5 +6,5 @@ use Illuminate\Http\JsonResponse;
 
 interface AwardArtistExceptionInterface
 {
-    public function bindOscarAwardArtist(array $data): JsonResponse;
+    public function findAwardArtistByName(string $name):JsonResponse;
 }

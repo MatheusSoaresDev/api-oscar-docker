@@ -7,12 +7,12 @@ use Illuminate\Http\JsonResponse;
 
 class GenericException
 {
-    public static function handle(\Throwable $e, array $details = null): JsonResponse
+    public static function handle(\Throwable $e, array $details = null, string $message = null): JsonResponse
     {
         return response()->json([
             "timestamp" => now(),
             "status" => 500,
-            "error" => $e->getMessage(),
+            "error" => $message ? $message : $e->getMessage(),
             "details" => [
             ]
         ], 500);

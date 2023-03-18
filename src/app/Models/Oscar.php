@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasPrimaryKeyUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Oscar extends Model
@@ -28,7 +29,7 @@ class Oscar extends Model
         "city",
         "hosts",
         "curiosities",
-        "awards"
+        "awardArtists"
     ];
     public $timestamps = true;
     protected $keyType = 'string';
@@ -41,5 +42,25 @@ class Oscar extends Model
     public function curiosities(): HasMany
     {
         return $this->hasMany(Curiosity::class);
+    }
+
+    /* Voltar nessa parte de relacao n pra n */
+
+    public function awardArtists(): BelongsToMany
+    {
+        return $this->belongsToMany(AwardArtist::class, 'oscar_award_artist', 'oscar_id', 'awardartist_id')->withTimestamps();
+    }
+
+    /* --------------------------- */
+
+    public function oscarAwardArtist(): HasMany
+    {
+        return $this->hasMany(OscarAwardArtist::class);
+    }
+
+    /* Aliases */
+    public function awards(): HasMany
+    {
+        return $this->OscarAwardArtist();
     }
 }

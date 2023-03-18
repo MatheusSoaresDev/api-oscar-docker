@@ -1,0 +1,2 @@
+docker exec -it php_laravel /bin/sh
+chmod -R 777 .
