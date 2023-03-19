@@ -3,6 +3,7 @@
 namespace App\Repositories\Exceptions\Eloquent;
 
 use App\Exceptions\NotEntityDefined;
+use App\Exceptions\NotRepositoryExceptionDefined;
 use App\Repositories\Contracts\ExceptionRepositoryInterface;
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Responses\GenericException;
@@ -28,7 +29,7 @@ abstract class BaseEloquentException implements ExceptionRepositoryInterface
     public function resolveRepository()
     {
         if (!method_exists($this, 'repository')) {
-            throw new NotEntityDefined;
+            throw new NotRepositoryExceptionDefined();
         }
 
         return app($this->repository());

@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-class NotRepositoryExceptionDefined
+class NotRepositoryExceptionDefined extends Exception
 {
 
 }
