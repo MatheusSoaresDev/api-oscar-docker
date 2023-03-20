@@ -28,8 +28,8 @@ Route::delete("/oscar/award/artist/{year}/{awardArtistId}", [OscarController::cl
 /* Awards Artists */
 Route::post("/award/artist", [AwardArtistController::class, "store"]);
 Route::get("/award/artist/{id}", [AwardArtistController::class, "findById"]);
-Route::put("/award/artist/{id}", [AwardArtistController::class, "update"]);
-Route::delete("/award/artist/{id}", [AwardArtistController::class, "delete"]);
+// A rota de update foi removido por questões de segurança.
+// A rota de delete foi removido por questões de segurança.
 
 /* Artist */
 Route::post("/artist", [ArtistController::class, "store"]);

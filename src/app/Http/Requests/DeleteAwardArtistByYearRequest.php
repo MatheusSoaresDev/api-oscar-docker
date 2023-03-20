@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateOscarRequest extends FormRequest
+class DeleteAwardArtistByYearRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,28 +24,16 @@ class UpdateOscarRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            "year" => "required|exists:oscar",
-            "edition" => "nullable",
-            "local" => "nullable",
-            "date" => "nullable|date_format:Y-m-d|after:".date("1929-05-16")."|before_or_equal:".date("Y-m-d"),
-            "dateYear" => "nullable|same:year",
-            "city" => "nullable",
-        ];
+        // O metodo de delete de premio nao precisa de validação para não haver riscos de exclusão acidental.
     }
-
     protected function prepareForValidation()
     {
-        $date = $this->get("date");
-        $newDate = new \DateTime($date);
-        $year = $newDate->format("Y");
-
-        $this->merge(["year" => $this->route("year")]);
-        if($this->get("date")) {
-            $this->merge(["dateYear" => $year]);
-        }
+        // O metodo de delete de premio nao precisa de validação para não haver riscos de exclusão acidental.
     }
-
+    public function messages(): array
+    {
+        // O metodo de delete de premio nao precisa de validação para não haver riscos de exclusão acidental.
+    }
     protected function failedValidation(Validator $validator)
     {
         $response = response()->json([

@@ -5,7 +5,7 @@ namespace App\Repositories\Exceptions\Eloquent;
 use App\Repositories\Contracts\ArtistExceptionInterface;
 use App\Repositories\Core\Eloquent\EloquentArtistRepository;
 use App\Responses\GenericException;
-use App\Responses\SuccessRequest;
+use App\Responses\SuccessResponse;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -18,21 +18,14 @@ class EloquentArtistException extends BaseEloquentException implements ArtistExc
     }
     public function store(array $data): JsonResponse
     {
-        try {
-            DB::beginTransaction();
-            $artist = $this->repository->store($data);
-            DB::commit();
-
-            return SuccessRequest::handle("Artist has been registered.", $artist->toArray());
-        } catch(Exception $e){
-            DB::rollBack();
-            return GenericException::handle($e);
-        }
+        $artist = $this->repository->store($data);
+        return SuccessResponse::handle("Artist has been registered.", $artist->toArray());
     }
 
     public function update(string $id, array $data): JsonResponse
     {
-        // TODO: Implement update() method.
+        $artist = $this->repository->update($id, $data);
+        return SuccessResponse::handle("Ceremony has been updated.", $artist->toArray());
     }
 
     public function delete(string $id): JsonResponse

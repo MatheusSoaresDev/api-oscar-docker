@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateOscarRequest extends FormRequest
+class FindOscarByYearRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,24 +26,22 @@ class UpdateOscarRequest extends FormRequest
     {
         return [
             "year" => "required|exists:oscar",
-            "edition" => "nullable",
-            "local" => "nullable",
-            "date" => "nullable|date_format:Y-m-d|after:".date("1929-05-16")."|before_or_equal:".date("Y-m-d"),
-            "dateYear" => "nullable|same:year",
-            "city" => "nullable",
         ];
     }
 
     protected function prepareForValidation()
     {
-        $date = $this->get("date");
-        $newDate = new \DateTime($date);
-        $year = $newDate->format("Y");
+        $year = $this->route("year");
+        $this->merge(["year" => $year]);
+    }
 
-        $this->merge(["year" => $this->route("year")]);
-        if($this->get("date")) {
-            $this->merge(["dateYear" => $year]);
-        }
+    public function messages(): array
+    {
+        $year = $this->route("year");
+
+        return [
+            "year.exists" => "Ceremony hasn't been found on ".$year.".",
+        ];
     }
 
     protected function failedValidation(Validator $validator)

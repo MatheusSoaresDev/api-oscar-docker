@@ -5,7 +5,7 @@ namespace App\Responses;
 use App\Responses\Contracts\ResponseInterface;
 use Illuminate\Http\JsonResponse;
 
-class SuccessRequest
+class SuccessResponse
 {
     public static function handle(string $message, array $response = null): JsonResponse
     {

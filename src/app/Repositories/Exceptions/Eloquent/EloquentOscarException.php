@@ -2,16 +2,11 @@
 
 namespace App\Repositories\Exceptions\Eloquent;
 
-use App\Exceptions\OscarQueryEditionException;
-use App\Exceptions\RelationNotExistsException;
 use App\Repositories\Contracts\OscarExceptionInterface;
 use App\Repositories\Core\Eloquent\EloquentOscarRepository;
-use App\Responses\GenericException;
-use App\Responses\NotFoundRequest;
-use App\Responses\SuccessRequest;
+use App\Responses\ErrorResponse;
+use App\Responses\SuccessResponse;
 use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 
@@ -29,25 +24,17 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
             $oscar = $this->repository->store($data);
             DB::commit();
 
-            return SuccessRequest::handle("Ceremony has been registered.", $oscar->toArray());
-        } catch(\Exception $e){
+            return SuccessResponse::handle("Ceremony has been registered.", $oscar->toArray());
+        } catch(Exception $e){
             DB::rollBack();
-            return GenericException::handle($e);
+            return ErrorResponse::handle($e);
         }
     }
 
-    public function update(string $year, array $data):JsonResponse
+    public function update(string $year, array $data): JsonResponse
     {
-        try {
-            DB::beginTransaction();
-            $oscar = $this->repository->update($year, $data);
-            DB::commit();
-
-            return SuccessRequest::handle("Ceremony has been updated.", $oscar->toArray());
-        } catch(OscarQueryEditionException $e){
-            DB::rollBack();
-            return $e->handle("edition", $data["edition"], $e->getMessage());
-        }
+        $oscar = $this->repository->update($year, $data);
+        return SuccessResponse::handle("Ceremony has been updated.", $oscar->toArray());
     }
 
     public function delete(string $year):JsonResponse
@@ -57,67 +44,34 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
             $this->repository->delete($year);
             DB::commit();
 
-            return SuccessRequest::handle("Ceremony has been deleted.");
-        } catch (ModelNotFoundException $e) {
+            return SuccessResponse::handle("Ceremony has been deleted.");
+        } catch (Exception $e) {
             DB::rollBack();
-            return NotFoundRequest::handle($e, "year", $year, "The ceremony hasn't been found on %s");
+            return ErrorResponse::handle($e);
         }
     }
 
     public function findById(string $id):JsonResponse
     {
-        try {
-            $oscar = $this->repository->findById($id);
-            return SuccessRequest::handle("The ceremony has been found.", $oscar->toArray());
-        } catch(ModelNotFoundException $e){
-            return NotFoundRequest::handle($e, "id", $id, "The ceremony hasn't been found with id: %s");
-        }
+        $oscar = $this->repository->findById($id);
+        return SuccessResponse::handle("The ceremony has been found.", $oscar->toArray());
     }
 
     public function findOscarByYear(int $year):JsonResponse
     {
-        try {
-            $oscar = $this->repository->findOscarByYear($year);
-            return SuccessRequest::handle("The ceremony has been found.", $oscar->toArray());
-        } catch(ModelNotFoundException $e){
-            return NotFoundRequest::handle($e, "year", $year, "The ceremony hasn't been found on %s");
-        }
+        $oscar = $this->repository->findOscarByYear($year);
+        return SuccessResponse::handle("The ceremony has been found.", $oscar->toArray());
     }
 
     public function addAwardToOscar(string $year, string $awardArtistId):JsonResponse
     {
-        try {
-            DB::beginTransaction();
-            $attach = $this->repository->addAwardToOscar($year, $awardArtistId);
-            DB::commit();
-
-            return SuccessRequest::handle("The award has been added to the ceremony.", $attach->toArray());
-        } catch(QueryException $e){
-            DB::rollBack();
-            return GenericException::handle($e, null, 'This award has already been added to the ceremony.');
-        } catch(ModelNotFoundException $e){
-            DB::rollBack();
-            return NotFoundRequest::handle($e, "awardartist_id", $awardArtistId, "The award hasn't been found with id: %s");
-        }
+        $attach = $this->repository->addAwardToOscar($year, $awardArtistId);
+        return SuccessResponse::handle("The award has been added to the ceremony.", $attach->toArray());
     }
 
     public function removeAwardFromOscar(string $year, string $awardArtistId):JsonResponse
     {
-        try {
-            DB::beginTransaction();
-            $this->repository->removeAwardFromOscar($year, $awardArtistId);
-            DB::commit();
-
-            return SuccessRequest::handle("The award has been removed from the ceremony.");
-        } catch (QueryException $e) {
-            DB::rollBack();
-            return GenericException::handle($e, null, 'This award has already been removed from the ceremony.');
-        } catch (ModelNotFoundException $e) {
-            DB::rollBack();
-            return NotFoundRequest::handle($e, "awardartist_id", $awardArtistId, "The award hasn't been found with id: %s");
-        } catch (RelationNotExistsException|Exception $e) {
-            DB::rollBack();
-            return GenericException::handle($e);
-        }
+        $this->repository->removeAwardFromOscar($year, $awardArtistId);
+        return SuccessResponse::handle("The award has been removed from the ceremony.");
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AwardArtistFindByIdRequest;
 use App\Http\Requests\CreateAwardArtistRequest;
+use App\Http\Requests\DeleteAwardArtistByYearRequest;
 use App\Http\Requests\UpdateAwardArtistRequest;
 use App\Repositories\Contracts\AwardArtistExceptionInterface;
 use Illuminate\Http\JsonResponse;
@@ -23,7 +25,7 @@ class AwardArtistController extends Controller
         return $this->exception->store($data);
     }
 
-    public function findById(string $id):JsonResponse
+    public function findById(AwardArtistFindByIdRequest $request, string $id):JsonResponse
     {
         return $this->exception->findById($id);
     }
@@ -32,10 +34,5 @@ class AwardArtistController extends Controller
     {
         $data = $request->only(["name"]);
         return $this->exception->update($id, $data);
-    }
-
-    public function delete(string $id):JsonResponse
-    {
-        return $this->exception->delete($id);
     }
 }

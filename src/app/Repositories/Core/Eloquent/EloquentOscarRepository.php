@@ -2,7 +2,8 @@
 
 namespace App\Repositories\Core\Eloquent;
 
-use App\Exceptions\RelationNotExistsException;
+use App\Exceptions\OscarAlreadyHasAwardArtistException;
+use App\Exceptions\OscarDoesntHaveItAwardException;
 use App\Models\AwardArtist;
 use App\Models\Oscar;
 use App\Repositories\Contracts\OscarRepositoryInterface;
@@ -46,9 +47,14 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
     {
         $oscar = $this->findOscarByYear($year);
         $awardArtist = AwardArtist::findOrFail($awardArtistId);
+        $pivotTable = $oscar->awardArtists()->find($awardArtist->id);
+
+        if($pivotTable) {
+            throw new OscarAlreadyHasAwardArtistException("This award already was added to the ceremony.", 500);
+        }
 
         $oscar->awardArtists()->attach($awardArtist->id, ["id" => Str::uuid(), "created_at" => now(), "updated_at" => now()], false);
-        return $oscar->with(["awardArtists"])->get();
+        return $this->entity->where("id", $oscar->id)->with(["awards_artists.award"])->get();
     }
 
     public function removeAwardFromOscar(string $year, string $awardArtistId)
@@ -58,10 +64,10 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
         $pivotTable = $oscar->awardArtists()->find($awardArtist->id);
 
         if(!$pivotTable) {
-            throw new RelationNotExistsException("This award doesn't exist in the ceremony.", 500);
+            throw new OscarDoesntHaveItAwardException("This award doesn't exist in the ceremony.", 500);
         }
 
         $oscar->awardArtists()->detach($awardArtist->id);
-        return $oscar;
+        return $this->entity->where("id", $oscar->id)->with(["awards_artists.award"])->get();
     }
 }

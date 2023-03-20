@@ -16,6 +16,9 @@ class OscarObserver
         $oscar->year = $year;
     }
 
+    /**
+     * @throws OscarQueryEditionException
+     */
     public function updating(Oscar $oscar): void
     {
         $date = new \DateTime($oscar->date);
@@ -23,27 +26,17 @@ class OscarObserver
 
         $oscar->year = $year;
         $this->verifyExistsEditionWithNameUpdated($oscar);
-        $this->verifyExistsCeremonyYear($oscar);
     }
 
+    /**
+     * @throws OscarQueryEditionException
+     */
     private function verifyExistsEditionWithNameUpdated(Oscar $oscar): void
     {
         $otherOscar = Oscar::where("edition", $oscar->edition)->where("id", "!=", $oscar->id)->first();
 
-        if($otherOscar){
-            throw new OscarQueryEditionException("Oscar ceremony already exists with edition name: $oscar->edition", 500);
-        }
-    }
-
-    /**
-     * @throws OscarQueryDateException
-     */
-    private function verifyExistsCeremonyYear(Oscar $oscar): void
-    {
-        $otherOscar = Oscar::whereYear("date", $oscar->year)->where("id", "<>", $oscar->id)->first();
-
-        if($otherOscar){
-            throw new OscarQueryDateException("Oscar ceremony already exists with date a year: $oscar->year.", 500);
+        if ($otherOscar) {
+            throw new OscarQueryEditionException("Ceremony already exists with edition name: $oscar->edition", 500);
         }
     }
 }

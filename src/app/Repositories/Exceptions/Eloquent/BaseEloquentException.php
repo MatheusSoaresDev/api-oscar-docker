@@ -7,7 +7,7 @@ use App\Exceptions\NotRepositoryExceptionDefined;
 use App\Repositories\Contracts\ExceptionRepositoryInterface;
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Responses\GenericException;
-use App\Responses\SuccessRequest;
+use App\Responses\SuccessResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 
@@ -15,9 +15,6 @@ abstract class BaseEloquentException implements ExceptionRepositoryInterface
 {
     protected RepositoryInterface $repository;
 
-    /**
-     * @throws NotEntityDefined
-     */
     public function __construct()
     {
         $this->repository = $this->resolveRepository();

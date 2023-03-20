@@ -57,10 +57,10 @@ class CreateOscarRequest extends FormRequest
     {
         $response = response()->json([
             "timestamp" => now(),
-            "status" => 404,
+            "status" => 500,
             "message" => "Errors has been found.",
-            "errors" => $validator->errors()
-        ], 404);
+            "details" => $validator->errors()
+        ], 500);
 
         throw new HttpResponseException($response);
     }
