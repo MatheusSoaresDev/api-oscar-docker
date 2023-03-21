@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Padronização dos requests e dos exceptions e model artist implementado.">
-      <change afterPath="$PROJECT_DIR$/src/app/Http/Requests/AddAwardToOscarRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blade.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blade.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" afterDir="false" />
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Repository de artista finalizado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/src/app/Http/Requests/CreateArtistRequest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Http/Requests/CreateOscarRequest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Models/Oscar.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/app/Observers/ArtistObserver.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Observers/OscarObserver.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -185,7 +181,7 @@
       <workItem from="1679249867200" duration="19378000" />
       <workItem from="1679325795901" duration="615000" />
       <workItem from="1679401187866" duration="1334000" />
-      <workItem from="1679402590688" duration="4595000" />
+      <workItem from="1679402590688" duration="7746000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
@@ -215,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679279023209</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Repository de artista finalizado.">
+      <created>1679414690505</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679414690505</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +229,8 @@
     <MESSAGE value="estrutura do json de premios de artistas pronta para os indicados." />
     <MESSAGE value="Criação da model artistas e metodo para criar um artista funcionando." />
     <MESSAGE value="Padronização dos requests e dos exceptions e model artist implementado." />
-    <option name="LAST_COMMIT_MESSAGE" value="Padronização dos requests e dos exceptions e model artist implementado." />
+    <MESSAGE value="Repository de artista finalizado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Repository de artista finalizado." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
