@@ -4,11 +4,8 @@ namespace App\Repositories\Exceptions\Eloquent;
 
 use App\Repositories\Contracts\ArtistExceptionInterface;
 use App\Repositories\Core\Eloquent\EloquentArtistRepository;
-use App\Responses\GenericException;
 use App\Responses\SuccessResponse;
-use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\DB;
 
 class EloquentArtistException extends BaseEloquentException implements ArtistExceptionInterface
 {
@@ -25,17 +22,19 @@ class EloquentArtistException extends BaseEloquentException implements ArtistExc
     public function update(string $id, array $data): JsonResponse
     {
         $artist = $this->repository->update($id, $data);
-        return SuccessResponse::handle("Ceremony has been updated.", $artist->toArray());
+        return SuccessResponse::handle("Artist has been updated.", $artist->toArray());
     }
 
     public function delete(string $id): JsonResponse
     {
-        // TODO: Implement delete() method.
+        $this->repository->delete($id);
+        return SuccessResponse::handle("Artist has been deleted.");
     }
 
     public function findById(string $id): JsonResponse
     {
-        // TODO: Implement findById() method.
+        $artist = $this->repository->findById($id);
+        return SuccessResponse::handle("Artist has been found.", $artist->toArray());
     }
 
     public function addArtistToNomineeArtist(string $artistId, string $movieId): JsonResponse
@@ -47,5 +46,4 @@ class EloquentArtistException extends BaseEloquentException implements ArtistExc
     {
         // TODO: Implement removeArtistFromNomineeArtist() method.
     }
-
 }

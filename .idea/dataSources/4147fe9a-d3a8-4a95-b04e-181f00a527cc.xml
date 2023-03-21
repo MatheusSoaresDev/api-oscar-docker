@@ -1201,7 +1201,7 @@ laravel\\_db|schema||laravel_db||UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="349" parent="297" name="id">
-      <AutoIncrement>7</AutoIncrement>
+      <AutoIncrement>8</AutoIncrement>
       <DasType>int unsigned|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
