@@ -4,6 +4,6 @@ namespace App\Repositories\Contracts;
 
 interface ArtistRepositoryInterface
 {
-    public function addArtistToNomineeArtist(string $artistId, string $movieId);
-    public function removeArtistFromNomineeArtist(string $artistId, string $movieId);
+    public function addNomineeArtistToOscar(string $yearOscar, array $data);
+    public function removeNomineeArtistToOscar(string $yearOscar, array $data);
 }

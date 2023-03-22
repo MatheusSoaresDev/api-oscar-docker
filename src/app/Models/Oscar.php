@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Oscar extends Model
 {
-    use HasFactory, HasPrimaryKeyUuid;
+    use HasPrimaryKeyUuid;
 
     protected $table = "oscar";
     protected $fillable = [

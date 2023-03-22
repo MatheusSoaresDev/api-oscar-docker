@@ -19,16 +19,8 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
 
     public function store(array $data): JsonResponse
     {
-        try {
-            DB::beginTransaction();
-            $oscar = $this->repository->store($data);
-            DB::commit();
-
-            return SuccessResponse::handle("Ceremony has been registered.", $oscar->toArray());
-        } catch(Exception $e){
-            DB::rollBack();
-            return ErrorResponse::handle($e);
-        }
+        $oscar = $this->repository->store($data);
+        return SuccessResponse::handle("Ceremony has been registered.", $oscar->toArray());
     }
 
     public function update(string $year, array $data): JsonResponse
@@ -39,16 +31,8 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
 
     public function delete(string $year):JsonResponse
     {
-        try {
-            DB::beginTransaction();
-            $this->repository->delete($year);
-            DB::commit();
-
-            return SuccessResponse::handle("Ceremony has been deleted.");
-        } catch (Exception $e) {
-            DB::rollBack();
-            return ErrorResponse::handle($e);
-        }
+        $this->repository->delete($year);
+        return SuccessResponse::handle("Ceremony has been deleted.");
     }
 
     public function findById(string $id):JsonResponse
@@ -63,15 +47,15 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
         return SuccessResponse::handle("The ceremony has been found.", $oscar->toArray());
     }
 
-    public function addAwardToOscar(string $year, string $awardArtistId):JsonResponse
+    public function addNomineeArtistToOscar(int $year, array $data): JsonResponse
     {
-        $attach = $this->repository->addAwardToOscar($year, $awardArtistId);
-        return SuccessResponse::handle("The award has been added to the ceremony.", $attach->toArray());
+        $nominee = $this->repository->addNomineeArtistToOscar($year, $data);
+        return SuccessResponse::handle("Nominee has been added to the ceremony.", $nominee->toArray());
     }
 
-    public function removeAwardFromOscar(string $year, string $awardArtistId):JsonResponse
+    public function removeNomineeArtistFromOscar(int $year, array $data): JsonResponse
     {
-        $this->repository->removeAwardFromOscar($year, $awardArtistId);
-        return SuccessResponse::handle("The award has been removed from the ceremony.");
+        $nominee = $this->repository->removeNomineeArtistFromOscar($year, $data);
+        return SuccessResponse::handle("Nominee has been added to the ceremony.", $nominee->toArray());
     }
 }

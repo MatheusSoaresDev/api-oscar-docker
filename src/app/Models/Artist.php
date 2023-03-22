@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\HasPrimaryKeyUuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Artist extends Model
 {
@@ -27,4 +28,9 @@ class Artist extends Model
         "country",
         "wikipedia",
     ];
+
+    public function OscarNominees(): BelongsToMany
+    {
+        return $this->belongsToMany(AwardArtist::class, 'oscar_award_artist', 'oscarawardartist_id', 'artist_id')->withTimestamps();
+    }
 }

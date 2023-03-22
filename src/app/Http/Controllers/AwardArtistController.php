@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddAwardToOscarRequest;
 use App\Http\Requests\AwardArtistFindByIdRequest;
 use App\Http\Requests\CreateAwardArtistRequest;
 use App\Http\Requests\DeleteAwardArtistByYearRequest;
+use App\Http\Requests\RemoveAwardFromOscarRequest;
 use App\Http\Requests\UpdateAwardArtistRequest;
 use App\Repositories\Contracts\AwardArtistExceptionInterface;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class AwardArtistController extends Controller
 {
@@ -34,5 +35,15 @@ class AwardArtistController extends Controller
     {
         $data = $request->only(["name"]);
         return $this->exception->update($id, $data);
+    }
+
+    public function addAwardToOscar(AddAwardToOscarRequest $request, string $year, string $awardArtistId):JsonResponse
+    {
+        return $this->exception->addAwardToOscar($year, $awardArtistId);
+    }
+
+    public function removeAwardFromOscar(RemoveAwardFromOscarRequest $request, string $year, string $awardArtistId):JsonResponse
+    {
+        return $this->exception->removeAwardFromOscar($year, $awardArtistId);
     }
 }

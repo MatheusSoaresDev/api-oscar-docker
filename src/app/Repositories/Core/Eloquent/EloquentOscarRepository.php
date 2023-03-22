@@ -40,34 +40,6 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
 
     public function findOscarByYear(int $year)
     {
-        return $this->entity->whereYear("date", $year)->with(["hosts", "curiosities", "awards_artists.award"])->firstOrFail();
-    }
-
-    public function addAwardToOscar(string $year, string $awardArtistId)
-    {
-        $oscar = $this->findOscarByYear($year);
-        $awardArtist = AwardArtist::findOrFail($awardArtistId);
-        $pivotTable = $oscar->awardArtists()->find($awardArtist->id);
-
-        if($pivotTable) {
-            throw new OscarAlreadyHasAwardArtistException("This award already was added to the ceremony.", 500);
-        }
-
-        $oscar->awardArtists()->attach($awardArtist->id, ["id" => Str::uuid(), "created_at" => now(), "updated_at" => now()], false);
-        return $this->entity->where("id", $oscar->id)->with(["awards_artists.award"])->get();
-    }
-
-    public function removeAwardFromOscar(string $year, string $awardArtistId)
-    {
-        $oscar = $this->findOscarByYear($year);
-        $awardArtist = AwardArtist::findOrFail($awardArtistId);
-        $pivotTable = $oscar->awardArtists()->find($awardArtist->id);
-
-        if(!$pivotTable) {
-            throw new OscarDoesntHaveItAwardException("This award doesn't exist in the ceremony.", 500);
-        }
-
-        $oscar->awardArtists()->detach($awardArtist->id);
-        return $this->entity->where("id", $oscar->id)->with(["awards_artists.award"])->get();
+        return $this->entity->whereYear("date", $year)->with(["hosts", "curiosities", "awards_artists.award", "awards_artists.nomineeArtists"])->firstOrFail();
     }
 }

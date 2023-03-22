@@ -10,6 +10,7 @@ use App\Http\Requests\RemoveAwardFromOscarRequest;
 use App\Http\Requests\UpdateOscarRequest;
 use App\Repositories\Contracts\OscarExceptionInterface;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class OscarController extends Controller
 {
@@ -39,15 +40,5 @@ class OscarController extends Controller
     public function delete(DeleteOscarByYearRequest $request, int $year): JsonResponse
     {
         return $this->exception->delete($year);
-    }
-
-    public function addAwardToOscar(AddAwardToOscarRequest $request, string $year, string $awardArtistId):JsonResponse
-    {
-        return $this->exception->addAwardToOscar($year, $awardArtistId);
-    }
-
-    public function removeAwardFromOscar(RemoveAwardFromOscarRequest $request, string $year, string $awardArtistId):JsonResponse
-    {
-        return $this->exception->removeAwardFromOscar($year, $awardArtistId);
     }
 }

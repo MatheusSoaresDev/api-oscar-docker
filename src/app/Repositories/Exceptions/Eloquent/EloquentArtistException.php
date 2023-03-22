@@ -37,12 +37,13 @@ class EloquentArtistException extends BaseEloquentException implements ArtistExc
         return SuccessResponse::handle("Artist has been found.", $artist->toArray());
     }
 
-    public function addArtistToNomineeArtist(string $artistId, string $movieId): JsonResponse
+    public function addNomineeArtistToOscar(string $yearOscar, array $data): JsonResponse
     {
-        // TODO: Implement addArtistToNomineeArtist() method.
+        $nominee = $this->repository->addNomineeArtistToOscar($yearOscar, $data);
+        return SuccessResponse::handle("Nominee has been registered", $nominee->toArray());
     }
 
-    public function removeArtistFromNomineeArtist(string $artistId, string $movieId): JsonResponse
+    public function removeNomineeArtistToOscar(string $yearOscar, array $data): JsonResponse
     {
         // TODO: Implement removeArtistFromNomineeArtist() method.
     }
