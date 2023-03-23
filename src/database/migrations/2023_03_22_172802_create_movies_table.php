@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nominee_artist', function (Blueprint $table) {
+        Schema::create('movie', function (Blueprint $table) {
             $table->uuid("id")->primary();
-
-            $table->string("oscarawardartist_id");
-            $table->foreign('oscarawardartist_id')->references('id')->on('oscar_award_artist')->onDelete('cascade');
-
-            $table->string("artist_id");
-            $table->foreign('artist_id')->references('id')->on('artist')->onDelete('cascade');
-
+            $table->string("name");
+            $table->integer("runtime");
+            $table->date("release");
+            $table->string("language");
+            $table->string("country");
+            $table->string("company");
+            $table->string("wikipedia");
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nominee_artist');
+        Schema::dropIfExists('movie');
     }
 };

@@ -24,18 +24,15 @@ class EloquentArtistRepository extends BaseEloquentRepository implements ArtistR
         return Artist::class;
     }
 
-    public function addNomineeArtistToOscar(string $yearOscar, array $data)
+    public function addNomineeArtistToOscar(string $yearOscar, array $data):void
     {
         $oscarAward = $this->oscar->findOscarByYear($yearOscar)->awards_artists->where("awardartist_id", $data["awardArtistId"])->firstOrFail();
-        //dd($oscarAward);
-
-        $oscarAward->nomineeArtists()->attach($data["artistId"], ["id" => Str::uuid(), "created_at" => now(), "updated_at" => now()], false);
-
-        dd($yearOscar, $data);
+        $oscarAward->nomineeArtists()->attach($data["artistId"], ["id" => Str::uuid(), "movie_id" => $data["movieId"], "created_at" => now(), "updated_at" => now()], false);
     }
 
-    public function removeNomineeArtistToOscar(string $yearOscar, array $data)
+    public function removeNomineeArtistFromOscar(string $yearOscar, array $data)
     {
-        // TODO: Implement removeNomineeArtistToOscar() method.
+        $oscarAward = $this->oscar->findOscarByYear($yearOscar)->awards_artists->where("awardartist_id", $data["awardArtistId"])->firstOrFail();
+        $oscarAward->nomineeArtists()->detach($data["artistId"]);
     }
 }

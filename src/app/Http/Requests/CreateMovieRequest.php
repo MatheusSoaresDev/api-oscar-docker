@@ -3,11 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateArtistRequest extends FormRequest
+class CreateMovieRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,18 +25,14 @@ class UpdateArtistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "id" => "required|string|exists:artist,id",
-            "name" => "nullable|string",
-            "birth" => "nullable|date",
-            "birthplace" => "nullable|string",
-            "country" => "nullable|string",
-            "wikipedia" => "nullable|active_url"
+            "name" => "required|string",
+            "runtime" => "required|integer",
+            "release" => "required|date",
+            "language" => "required|string|in:DAN,ZH,RON,POL,FR,KOR,MKD,HU,FA,ES,ARB,RU,BIS,DE,PT,IT,BS,NO,JA,EN",
+            "country" => "required|string|country_code",
+            "company" => "required|string",
+            "wikipedia" => "required|string|active_url",
         ];
-    }
-
-    protected function prepareForValidation()
-    {
-        $this->merge(["id" => $this->route("id")]);
     }
 
     protected function failedValidation(Validator $validator)

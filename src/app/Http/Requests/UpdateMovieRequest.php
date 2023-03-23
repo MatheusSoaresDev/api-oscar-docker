@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateArtistRequest extends FormRequest
+class UpdateMovieRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,14 @@ class UpdateArtistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "id" => "required|string|exists:artist,id",
+            "id" => "required|string|exists:movie,id",
             "name" => "nullable|string",
-            "birth" => "nullable|date",
-            "birthplace" => "nullable|string",
-            "country" => "nullable|string",
-            "wikipedia" => "nullable|active_url"
+            "runtime" => "nullable|integer",
+            "release" => "nullable|date",
+            "language" => "nullable|string|in:DAN,ZH,RON,POL,FR,KOR,MKD,HU,FA,ES,ARB,RU,BIS,DE,PT,IT,BS,NO,JA,EN",
+            "country" => "nullable|string|country_code",
+            "company" => "nullable|string",
+            "wikipedia" => "nullable|string|active_url",
         ];
     }
 

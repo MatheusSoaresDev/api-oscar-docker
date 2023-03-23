@@ -6,13 +6,17 @@ use App\Repositories\Contracts\ArtistExceptionInterface;
 use App\Repositories\Contracts\ArtistRepositoryInterface;
 use App\Repositories\Contracts\AwardArtistExceptionInterface;
 use App\Repositories\Contracts\AwardArtistRepositoryInterface;
+use App\Repositories\Contracts\MovieExceptionInterface;
+use App\Repositories\Contracts\MovieRepositoryInterface;
 use App\Repositories\Contracts\OscarExceptionInterface;
 use App\Repositories\Contracts\OscarRepositoryInterface;
 use App\Repositories\Core\Eloquent\EloquentArtistRepository;
 use App\Repositories\Core\Eloquent\EloquentAwardArtistRepository;
+use App\Repositories\Core\Eloquent\EloquentMovieRepository;
 use App\Repositories\Core\Eloquent\EloquentOscarRepository;
 use App\Repositories\Exceptions\Eloquent\EloquentArtistException;
 use App\Repositories\Exceptions\Eloquent\EloquentAwardArtistException;
+use App\Repositories\Exceptions\Eloquent\EloquentMovieException;
 use App\Repositories\Exceptions\Eloquent\EloquentOscarException;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,9 +37,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(AwardArtistExceptionInterface::class, EloquentAwardArtistException::class);
         /* ------------------- */
 
-        /* Award Artist Repositories */
+        /* Artist Repositories */
         $this->app->bind(ArtistRepositoryInterface::class, EloquentArtistRepository::class);
         $this->app->bind(ArtistExceptionInterface::class, EloquentArtistException::class);
+        /* ------------------- */
+
+        /* Movie Repositories */
+        $this->app->bind(MovieRepositoryInterface::class, EloquentMovieRepository::class);
+        $this->app->bind(MovieExceptionInterface::class, EloquentMovieException::class);
         /* ------------------- */
     }
 

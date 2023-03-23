@@ -7,4 +7,5 @@ use Illuminate\Http\JsonResponse;
 interface OscarExceptionInterface
 {
     public function findOscarByYear(int $year):JsonResponse;
+
 }

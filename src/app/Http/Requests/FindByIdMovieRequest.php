@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateArtistRequest extends FormRequest
+class FindByIdMovieRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,16 @@ class UpdateArtistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "id" => "required|string|exists:artist,id",
-            "name" => "nullable|string",
-            "birth" => "nullable|date",
-            "birthplace" => "nullable|string",
-            "country" => "nullable|string",
-            "wikipedia" => "nullable|active_url"
+            "id" => "required|exists:movie,id",
+        ];
+    }
+
+    public function messages(): array
+    {
+        $id = $this->route("id");
+
+        return [
+            "id.exists" => "Artist hasn't been found with: ".$id.".",
         ];
     }
 

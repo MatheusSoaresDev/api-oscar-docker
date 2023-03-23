@@ -40,4 +40,10 @@ class ArtistController extends Controller
         $data = $request->only(["awardArtistId", "artistId", "movieId"]);
         return $this->exception->addNomineeArtistToOscar($year, $data);
     }
+
+    public function removeNomineeArtistFromOscar(Request $request, int $year): JsonResponse
+    {
+        $data = $request->only(["awardArtistId", "artistId", "movieId"]);
+        return $this->exception->removeNomineeArtistFromOscar($year, $data);
+    }
 }

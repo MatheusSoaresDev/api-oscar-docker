@@ -46,16 +46,4 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
         $oscar = $this->repository->findOscarByYear($year);
         return SuccessResponse::handle("The ceremony has been found.", $oscar->toArray());
     }
-
-    public function addNomineeArtistToOscar(int $year, array $data): JsonResponse
-    {
-        $nominee = $this->repository->addNomineeArtistToOscar($year, $data);
-        return SuccessResponse::handle("Nominee has been added to the ceremony.", $nominee->toArray());
-    }
-
-    public function removeNomineeArtistFromOscar(int $year, array $data): JsonResponse
-    {
-        $nominee = $this->repository->removeNomineeArtistFromOscar($year, $data);
-        return SuccessResponse::handle("Nominee has been added to the ceremony.", $nominee->toArray());
-    }
 }

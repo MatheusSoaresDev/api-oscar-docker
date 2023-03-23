@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Helpers\ShortLinkApi;
 use App\Models\Artist;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -22,12 +23,7 @@ class ArtistObserver
      */
     public function creating(Artist $artist): void
     {
-        $client = new Client(["base_uri" => "https://api.shrtco.de/v2/"]);
-        $response = $client->request("POST", "shorten?url=$artist->wikipedia");
-
-        $result = json_decode($response->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
-
-        $artist->wikipedia = $result->result->short_link;
+        $artist->wikipedia = ShortLinkApi::getShortLink($artist->wikipedia);
     }
 
     /**
@@ -38,14 +34,13 @@ class ArtistObserver
         //
     }
 
+    /**
+     * @throws GuzzleException
+     * @throws \JsonException
+     */
     public function updating(Artist $artist):void
     {
-        $client = new Client(["base_uri" => "https://api.shrtco.de/v2/"]);
-        $response = $client->request("POST", "shorten?url=$artist->wikipedia");
-
-        $result = json_decode($response->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
-
-        $artist->wikipedia = $result->result->short_link;
+        $artist->wikipedia = ShortLinkApi::getShortLink($artist->wikipedia);
     }
 
     /**
