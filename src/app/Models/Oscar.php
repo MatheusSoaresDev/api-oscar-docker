@@ -29,7 +29,7 @@ class Oscar extends Model
         "city",
         //"hosts",
         //"curiosities",
-        "awards_artists"
+        "awardArtists"
     ];
     public $timestamps = true;
     protected $keyType = 'string';
@@ -44,19 +44,13 @@ class Oscar extends Model
         return $this->hasMany(Curiosity::class);
     }
 
-    public function awardArtists(): BelongsToMany
+    public function awardArtistsRelation(): BelongsToMany
     {
         return $this->belongsToMany(AwardArtist::class, 'oscar_award_artist', 'oscar_id', 'awardartist_id')->withTimestamps();
     }
 
-    public function oscarAwardArtist(): HasMany
+    public function awardArtists(): HasMany
     {
         return $this->hasMany(OscarAwardArtist::class);
-    }
-
-    /* Aliases */
-    public function awards_artists(): HasMany
-    {
-        return $this->OscarAwardArtist();
     }
 }

@@ -29,7 +29,7 @@ class Artist extends Model
         "wikipedia",
     ];
 
-    public function OscarNominees(): BelongsToMany
+    public function nomineeArtistsRelation(): BelongsToMany
     {
         return $this->belongsToMany(AwardArtist::class, 'oscar_award_artist', 'oscarawardartist_id', 'artist_id')->withTimestamps();
     }

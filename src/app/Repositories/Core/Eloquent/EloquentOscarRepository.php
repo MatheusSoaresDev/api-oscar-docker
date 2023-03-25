@@ -40,6 +40,8 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
 
     public function findOscarByYear(int $year)
     {
-        return $this->entity->whereYear("date", $year)->with(["hosts", "curiosities", "awards_artists.award", "awards_artists.nomineeArtists"])->firstOrFail();
+        return $this->entity->whereYear("date", $year)
+            ->with(["hosts", "curiosities", "awardArtists.award", "awardArtists.nomineeArtists.artist", "awardArtists.nomineeArtists.movie"])
+            ->firstOrFail();
     }
 }

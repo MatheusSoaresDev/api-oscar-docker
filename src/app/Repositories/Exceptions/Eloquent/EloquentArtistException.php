@@ -4,8 +4,13 @@ namespace App\Repositories\Exceptions\Eloquent;
 
 use App\Repositories\Contracts\ArtistExceptionInterface;
 use App\Repositories\Core\Eloquent\EloquentArtistRepository;
+use App\Responses\CustomErrorResponse;
+use App\Responses\ErrorResponse;
 use App\Responses\SuccessResponse;
+use Exception;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 
 class EloquentArtistException extends BaseEloquentException implements ArtistExceptionInterface
 {
@@ -39,8 +44,13 @@ class EloquentArtistException extends BaseEloquentException implements ArtistExc
 
     public function addNomineeArtistToOscar(string $yearOscar, array $data): JsonResponse
     {
-        $this->repository->addNomineeArtistToOscar($yearOscar, $data);
-        return SuccessResponse::handle("Nominee has been registered to the ceremony");
+        try{
+            $this->repository->addNomineeArtistToOscar($yearOscar, $data);
+            return SuccessResponse::handle("Nominee has been registered to the ceremony");
+        } catch (Exception $e){
+            Log::error($e->getMessage());
+            return ErrorResponse::handle($e);
+        }
     }
 
     public function removeNomineeArtistFromOscar(string $yearOscar, array $data): JsonResponse

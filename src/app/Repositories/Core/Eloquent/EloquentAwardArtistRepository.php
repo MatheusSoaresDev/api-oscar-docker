@@ -25,13 +25,13 @@ class EloquentAwardArtistRepository extends BaseEloquentRepository implements Aw
     {
         $awardArtist = $this->findById($awardArtistId);
         $oscar = Oscar::where("year", $year)->firstOrFail();
-        $pivotTable = $oscar->awardArtists()->find($awardArtist->id);
+        $pivotTable = $oscar->awardArtistsRelation()->find($awardArtist->id);
 
         if($pivotTable) {
             throw new OscarAlreadyHasAwardArtistException("This award already was added to the ceremony.", 500);
         }
 
-        $oscar->awardArtists()->attach($awardArtist->id, ["id" => Str::uuid(), "created_at" => now(), "updated_at" => now()], false);
+        $oscar->awardArtistsRelation()->attach($awardArtist->id, ["id" => Str::uuid(), "created_at" => now(), "updated_at" => now()], false);
         return $this->entity->where("id", $oscar->id)->with(["awards_artists.award"])->get();
     }
 
@@ -39,13 +39,13 @@ class EloquentAwardArtistRepository extends BaseEloquentRepository implements Aw
     {
         $awardArtist = $this->findById($awardArtistId);
         $oscar = Oscar::where("year", $year)->firstOrFail();
-        $pivotTable = $oscar->awardArtists()->find($awardArtist->id);
+        $pivotTable = $oscar->awardArtistsRelation()->find($awardArtist->id);
 
         if(!$pivotTable) {
             throw new OscarDoesntHaveItAwardException("This award doesn't exist in the ceremony.", 500);
         }
 
-        $oscar->awardArtists()->detach($awardArtist->id);
+        $oscar->awardArtistsRelation()->detach($awardArtist->id);
         return $this->entity->where("id", $oscar->id)->with(["awards_artists.award"])->get();
     }
 }

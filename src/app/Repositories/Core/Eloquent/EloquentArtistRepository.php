@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Core\Eloquent;
 
+use App\Exceptions\NomineeArtistAlreadyExistsException;
 use App\Models\Artist;
 use App\Models\Oscar;
 use App\Models\OscarAwardArtist;
@@ -26,7 +27,14 @@ class EloquentArtistRepository extends BaseEloquentRepository implements ArtistR
 
     public function addNomineeArtistToOscar(string $yearOscar, array $data):void
     {
-        $oscarAward = $this->oscar->findOscarByYear($yearOscar)->awards_artists->where("awardartist_id", $data["awardArtistId"])->firstOrFail();
+        $artist = $this->findById($data["artistId"]);
+        $oscarAward = OscarAwardArtist::where("awardartist_id", $data["awardArtistId"])->firstOrFail();
+        $pivotTable = $oscarAward->nomineeArtistsRelation()->where("artist_id", $artist->id)->where("movie_id", $data["movieId"])->first();
+
+        if($pivotTable) {
+            throw new NomineeArtistAlreadyExistsException("The artist is already nominated for the ceremony.", 500);
+        }
+
         $oscarAward->nomineeArtists()->attach($data["artistId"], ["id" => Str::uuid(), "movie_id" => $data["movieId"], "created_at" => now(), "updated_at" => now()], false);
     }
 

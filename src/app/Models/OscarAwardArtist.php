@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Traits\HasPrimaryKeyUuid;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -36,9 +35,14 @@ class OscarAwardArtist extends Model
         return $this->hasMany(AwardArtist::class, 'id', 'awardartist_id');
     }
 
-    public function nomineeArtists(): BelongsToMany
+    public function nomineeArtistsRelation(): BelongsToMany
     {
         return $this->belongsToMany(Artist::class, 'nominee_artist', 'oscarawardartist_id', 'artist_id')->withTimestamps();
+    }
+
+    public function nomineeArtists(): HasMany
+    {
+        return $this->hasMany(NomineeArtist::class, 'oscarawardartist_id', 'id');
     }
 
     /* Aliases */
