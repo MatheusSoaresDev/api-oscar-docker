@@ -17,7 +17,7 @@ class OscarAwardArtist extends Model
         "awardartist_id",
     ];
     protected $visible = [
-        "id",
+        //"id",
         "award",
         "nomineeArtists"
     ];

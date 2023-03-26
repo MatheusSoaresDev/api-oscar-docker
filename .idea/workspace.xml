@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Indicação retornando com o filme que o artista fez para ser indicado e funcao de adicionar indicado padronizada com a de adicionar premio a cerimonia.">
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/ArtistNotIsNomineeWithDuplicateMovieException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/ExistsItAwardInCeremonyException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/NomineeIsNotExistsException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/Verifications/NomineeArtistVerification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Request de validação as funcoes de indicação;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/NomineeArtistAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Exceptions/NomineeArtistAlreadyExistsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentArtistRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Responses/CustomErrorResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Responses/CustomErrorResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Models/NomineeArtist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/NomineeArtist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/migrations/2023_03_23_004356_create_nominee_artists.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/migrations/2023_03_23_004356_create_nominee_artists.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,23 +167,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.search-composer-json": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/mt/Documents/Projetos/Laravel/api-oscar-docker/src/app/Repositories/Core/Eloquent/Verifications",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mt/Documents/Projetos/Laravel/api-oscar-docker/src/app/Repositories/Core/Eloquent/Verifications&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -212,7 +204,8 @@
       <workItem from="1679595436301" duration="716000" />
       <workItem from="1679623190481" duration="3006000" />
       <workItem from="1679699433194" duration="8485000" />
-      <workItem from="1679780487041" duration="14970000" />
+      <workItem from="1679780487041" duration="15328000" />
+      <workItem from="1679848924770" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
@@ -277,7 +270,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679719439154</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Regras de validação aplicada na criacao e remocao de indicados aos premios.">
+      <created>1679805626885</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679805626885</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Request de validação as funcoes de indicação;">
+      <created>1679805655223</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679805655223</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +300,9 @@
     <MESSAGE value="Indicação ao premio de artistas implementado faltando adicionar o filme." />
     <MESSAGE value="Indicação de premios de artistas implementado. Faltanto tratar as excecoes." />
     <MESSAGE value="Indicação retornando com o filme que o artista fez para ser indicado e funcao de adicionar indicado padronizada com a de adicionar premio a cerimonia." />
-    <option name="LAST_COMMIT_MESSAGE" value="Indicação retornando com o filme que o artista fez para ser indicado e funcao de adicionar indicado padronizada com a de adicionar premio a cerimonia." />
+    <MESSAGE value="Regras de validação aplicada na criacao e remocao de indicados aos premios." />
+    <MESSAGE value="Request de validação as funcoes de indicação;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Request de validação as funcoes de indicação;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -13,11 +13,16 @@ class NomineeArtist extends Model
     protected $fillable = [
         "id",
         "oscarawardartist_id",
+        "winner",
     ];
     protected $visible = [
         "id",
         "artist",
-        "movie"
+        "movie",
+        "winner"
+    ];
+    protected $casts = [
+        'winner' => 'boolean',
     ];
     public $timestamps = true;
     protected $keyType = 'string';

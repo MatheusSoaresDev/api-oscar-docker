@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string("movie_id");
             $table->foreign('movie_id')->references('id')->on('movie');
 
+            $table->boolean("winner")->default(false);
+
             $table->unique(['oscarawardartist_id', 'artist_id', 'movie_id']);
 
             $table->timestamps();
