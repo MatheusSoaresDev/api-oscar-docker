@@ -11,7 +11,7 @@ class NomineeArtistAlreadyExistsException extends Exception
 {
     public function render(Request $request): JsonResponse
     {
-        return ErrorResponse::handle($this, [
+        return ErrorResponse::handle($this, /*[
             "fields" => [
                 "year",
                 "awardArtistId",
@@ -24,6 +24,6 @@ class NomineeArtistAlreadyExistsException extends Exception
                 $request->route("artistId"),
                 $request->route("movieId")
             ],
-        ]);
+        ]*/);
     }
 }
