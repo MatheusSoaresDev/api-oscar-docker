@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddNomineeArtistToOscarRequest;
 use App\Http\Requests\CreateArtistRequest;
 use App\Http\Requests\FindByIdArtistRequest;
+use App\Http\Requests\NomineeWinnerOrNoWinnerRequest;
 use App\Http\Requests\RemoveNomineeArtistFromOscarRequest;
 use App\Http\Requests\UpdateArtistRequest;
 use App\Repositories\Contracts\ArtistExceptionInterface;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ArtistController extends Controller
 {
@@ -38,7 +40,7 @@ class ArtistController extends Controller
 
     public function addNomineeArtistToOscar(AddNomineeArtistToOscarRequest $request, int $year): JsonResponse
     {
-        $data = $request->only(["awardArtistId", "artistId", "movieId"]);
+        $data = $request->only(["awardArtistId", "artistId", "movieId", "winner"]);
         return $this->exception->addNomineeArtistToOscar($year, $data);
     }
 
@@ -46,5 +48,11 @@ class ArtistController extends Controller
     {
         $data = $request->only(["awardArtistId", "artistId"]);
         return $this->exception->removeNomineeArtistFromOscar($year, $data);
+    }
+
+    public function nomineeWinnerOrNoWinner(NomineeWinnerOrNoWinnerRequest $request, int $year): JsonResponse
+    {
+        $data = $request->only(["awardArtistId", "artistId", "winner"]);
+        return $this->exception->nomineeWinnerOrNoWinner($year, $data);
     }
 }

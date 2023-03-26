@@ -54,4 +54,10 @@ class EloquentArtistException extends BaseEloquentException implements ArtistExc
         $this->repository->removeNomineeArtistFromOscar($yearOscar, $data);
         return SuccessResponse::handle("Nominee has been deleted from the ceremony");
     }
+
+    public function nomineeWinnerOrNoWinner(string $yearOscar, array $data): JsonResponse
+    {
+        $this->repository->nomineeWinnerOrNoWinner($yearOscar, $data);
+        return SuccessResponse::handle("Nominee has been updated to winner.");
+    }
 }

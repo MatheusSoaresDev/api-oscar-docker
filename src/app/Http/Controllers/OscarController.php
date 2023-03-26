@@ -26,7 +26,7 @@ class OscarController extends Controller
         return $this->exception->store($data);
     }
 
-    public function findAll(Request $request): JsonResponse
+    public function findAll(): JsonResponse
     {
         return $this->exception->findAll();
     }

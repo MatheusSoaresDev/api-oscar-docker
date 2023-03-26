@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AddNomineeArtistToOscarRequest extends FormRequest
+class NomineeWinnerOrNoWinnerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,31 +28,25 @@ class AddNomineeArtistToOscarRequest extends FormRequest
             "year" => "required|exists:oscar,year",
             "awardArtistId" => "required|exists:award_artist,id",
             "artistId" => "required|exists:artist,id",
-            "movieId" => "required|exists:movie,id",
             "winner" => "required|boolean",
         ];
     }
-
     protected function prepareForValidation()
     {
         $this->merge(["year" => $this->route("year")]);
     }
-
     public function messages(): array
     {
         $year = $this->route("year");
         $awardArtistId = $this->get("awardArtistId");
         $artistId = $this->get("artistId");
-        $movieId = $this->get("movieId");
 
         return [
             "year.exists" => "Ceremony hasn't been found on $year.",
             "awardArtistId.exists" => "Award hasn't been found with id: $awardArtistId.",
             "artistId.exists" => "Artist hasn't been found with id: $artistId.",
-            "movieId.exists" => "Movie hasn't been found with id: $movieId.",
         ];
     }
-
     protected function failedValidation(Validator $validator)
     {
         $response = response()->json([

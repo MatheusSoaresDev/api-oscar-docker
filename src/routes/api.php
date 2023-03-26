@@ -27,6 +27,8 @@ Route::put("/artist/{id}", [ArtistController::class, "update"]);
 Route::post("/artist/oscar/nominee/{year}", [ArtistController::class, "addNomineeArtistToOscar"]);
 Route::delete("/artist/oscar/nominee/{year}", [ArtistController::class, "removeNomineeArtistFromOscar"]);
 
+Route::patch("/artist/oscar/winner/{year}", [ArtistController::class, "nomineeWinnerOrNoWinner"]);
+
 /* Movie */
 Route::post("/movie", [MovieController::class, "store"]);
 Route::get("/movie/{id}", [MovieController::class, "findById"]);

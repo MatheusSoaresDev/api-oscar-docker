@@ -29,6 +29,11 @@ class Artist extends Model
         "wikipedia",
     ];
 
+    const NOMINEE_WINNER_MESSAGE = [
+        "winner" => "This artist is already winner in this award.",
+        "noWinner" => "This artist is not winner in this award."
+    ];
+
     public function nomineeArtistsRelation(): BelongsToMany
     {
         return $this->belongsToMany(AwardArtist::class, 'oscar_award_artist', 'oscarawardartist_id', 'artist_id')->withTimestamps();

@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Campo para informar se o indicado venceu incluido.">
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Endpoint para retornar todas as cerimonias implementado.">
+      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/NomineeIsAlreadyWinner.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Models/NomineeArtist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/NomineeArtist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/OscarRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentOscarException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Requests/AddNomineeArtistToOscarRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Requests/AddNomineeArtistToOscarRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Models/Artist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Artist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistExceptionInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentArtistRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +213,7 @@
       <workItem from="1679623190481" duration="3006000" />
       <workItem from="1679699433194" duration="8485000" />
       <workItem from="1679780487041" duration="15328000" />
-      <workItem from="1679848924770" duration="2927000" />
+      <workItem from="1679848924770" duration="7344000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
@@ -295,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679854106727</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Endpoint para retornar todas as cerimonias implementado.">
+      <created>1679855014970</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679855014970</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +325,8 @@
     <MESSAGE value="Regras de validação aplicada na criacao e remocao de indicados aos premios." />
     <MESSAGE value="Request de validação as funcoes de indicação;" />
     <MESSAGE value="Campo para informar se o indicado venceu incluido." />
-    <option name="LAST_COMMIT_MESSAGE" value="Campo para informar se o indicado venceu incluido." />
+    <MESSAGE value="Endpoint para retornar todas as cerimonias implementado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Endpoint para retornar todas as cerimonias implementado." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

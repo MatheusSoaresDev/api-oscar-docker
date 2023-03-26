@@ -8,4 +8,5 @@ interface ArtistExceptionInterface
 {
     public function addNomineeArtistToOscar(string $yearOscar, array $data): JsonResponse;
     public function removeNomineeArtistFromOscar(string $yearOscar, array $data): JsonResponse;
+    public function nomineeWinnerOrNoWinner(string $yearOscar, array $data):JsonResponse;
 }
