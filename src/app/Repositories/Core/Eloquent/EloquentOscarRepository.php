@@ -26,6 +26,17 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
         return $oscar;
     }
 
+    public function findAll()
+    {
+        return $this->entity->with([
+            "hosts",
+            "curiosities",
+            "awardArtists.award",
+            "awardArtists.nomineeArtists.artist",
+            "awardArtists.nomineeArtists.movie"
+        ])->paginate(5);
+    }
+
     public function update(string $id, array $data)
     {
         $uuid = $this->findOscarByYear($id);

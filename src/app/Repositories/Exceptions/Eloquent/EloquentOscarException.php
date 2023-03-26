@@ -23,6 +23,12 @@ class EloquentOscarException extends BaseEloquentException implements OscarExcep
         return SuccessResponse::handle("Ceremony has been registered.", $oscar->toArray());
     }
 
+    public function findAll(): JsonResponse
+    {
+        $oscars = $this->repository->findAll();
+        return SuccessResponse::handle("All ceremonies have been found.", $oscars->toArray());
+    }
+
     public function update(string $year, array $data): JsonResponse
     {
         $oscar = $this->repository->update($year, $data);

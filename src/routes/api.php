@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 /* Routes Oscar Ceremony */
 Route::post("/oscar", [OscarController::class, "store"]);
+Route::get("/oscar", [OscarController::class, "findAll"]);
 Route::get("/oscar/{year}", [OscarController::class, "findOscarByYear"]);
 Route::put("/oscar/{year}", [OscarController::class, "update"]);
 Route::delete("/oscar/{year}", [OscarController::class, "delete"]);

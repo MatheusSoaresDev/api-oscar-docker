@@ -26,6 +26,11 @@ class OscarController extends Controller
         return $this->exception->store($data);
     }
 
+    public function findAll(Request $request): JsonResponse
+    {
+        return $this->exception->findAll();
+    }
+
     public function findOscarByYear(FindOscarByYearRequest $request, int $year): JsonResponse
     {
         return $this->exception->findOscarByYear($year);

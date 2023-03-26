@@ -16,7 +16,7 @@ class NomineeArtist extends Model
         "winner",
     ];
     protected $visible = [
-        "id",
+        //"id",
         "artist",
         "movie",
         "winner"
