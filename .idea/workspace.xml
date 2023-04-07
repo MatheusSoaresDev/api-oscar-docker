@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Endpoint para retornar todas as cerimonias implementado.">
-      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/NomineeIsAlreadyWinner.php" afterDir="false" />
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Alteração de status de vencedor implementado.">
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardMovieExceptionInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardMovieRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardMovieRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardMovieException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/ArtistController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Requests/AddNomineeArtistToOscarRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Requests/AddNomineeArtistToOscarRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Models/Artist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Artist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/ArtistRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentArtistRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentArtistException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/AwardArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/AwardArtistController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardArtistRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +32,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
+        <option value="tsconfig.json" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
@@ -44,6 +50,7 @@
     <setting file="file://$PROJECT_DIR$/src/app/Http/Requests/CreateArtistRequest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Http/Requests/CreateOscarRequest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Http/Requests/FindByIdMovieRequest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/app/Models/AwardMovie.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Models/Oscar.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Observers/ArtistObserver.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/app/Observers/MovieObserver.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -53,7 +60,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/src/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/src/vendor/doctrine/lexer" />
@@ -175,23 +182,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mt/Documents/Projetos/Laravel/api-oscar-docker/src/app/Repositories/Core/Eloquent/Verifications&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/mt/Documents/Projetos/Laravel/api-oscar-docker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -213,7 +226,23 @@
       <workItem from="1679623190481" duration="3006000" />
       <workItem from="1679699433194" duration="8485000" />
       <workItem from="1679780487041" duration="15328000" />
-      <workItem from="1679848924770" duration="7344000" />
+      <workItem from="1679848924770" duration="9289000" />
+      <workItem from="1679920473125" duration="2970000" />
+      <workItem from="1679935699895" duration="244000" />
+      <workItem from="1679935965672" duration="1182000" />
+      <workItem from="1680099254380" duration="38000" />
+      <workItem from="1680109139462" duration="9000" />
+      <workItem from="1680109640677" duration="3723000" />
+      <workItem from="1680203877746" duration="137000" />
+      <workItem from="1680304900186" duration="786000" />
+      <workItem from="1680527530032" duration="19000" />
+      <workItem from="1680527823356" duration="617000" />
+      <workItem from="1680614106502" duration="1097000" />
+      <workItem from="1680619257537" duration="864000" />
+      <workItem from="1680700474432" duration="32000" />
+      <workItem from="1680701049844" duration="4679000" />
+      <workItem from="1680717495654" duration="246000" />
+      <workItem from="1680876682967" duration="3407000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
@@ -306,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679855014970</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Alteração de status de vencedor implementado.">
+      <created>1679872587994</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679872587994</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +362,8 @@
     <MESSAGE value="Request de validação as funcoes de indicação;" />
     <MESSAGE value="Campo para informar se o indicado venceu incluido." />
     <MESSAGE value="Endpoint para retornar todas as cerimonias implementado." />
-    <option name="LAST_COMMIT_MESSAGE" value="Endpoint para retornar todas as cerimonias implementado." />
+    <MESSAGE value="Alteração de status de vencedor implementado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alteração de status de vencedor implementado." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

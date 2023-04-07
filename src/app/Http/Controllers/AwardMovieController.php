@@ -2,31 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddAwardToOscarRequest;
-use App\Http\Requests\AwardArtistFindByIdRequest;
-use App\Http\Requests\CreateAwardArtistRequest;
-use App\Http\Requests\DeleteAwardArtistByYearRequest;
-use App\Http\Requests\RemoveAwardFromOscarRequest;
-use App\Http\Requests\UpdateAwardArtistRequest;
+use App\Http\Requests\AwardMovieFindByIdRequest;
+use App\Http\Requests\CreateAwardMovieRequest;
 use App\Repositories\Contracts\AwardArtistExceptionInterface;
+use App\Repositories\Contracts\AwardMovieExceptionInterface;
 use Illuminate\Http\JsonResponse;
 
-class AwardArtistController extends Controller
+class AwardMovieController extends Controller
 {
-    private AwardArtistExceptionInterface $exception;
+    private AwardMovieExceptionInterface $exception;
 
-    public function __construct(AwardArtistExceptionInterface $exception)
+    public function __construct(AwardMovieExceptionInterface $exception)
     {
         $this->exception = $exception;
     }
 
-    public function store(CreateAwardArtistRequest $request):JsonResponse
+    public function store(CreateAwardMovieRequest $request):JsonResponse
     {
         $data = $request->only(["name"]);
         return $this->exception->store($data);
     }
 
-    public function findById(AwardArtistFindByIdRequest $request, string $id):JsonResponse
+    public function findById(AwardMovieFindByIdRequest $request, string $id):JsonResponse
     {
         return $this->exception->findById($id);
     }
