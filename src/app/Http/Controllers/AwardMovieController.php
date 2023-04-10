@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddAwardMovieToOscarRequest;
 use App\Http\Requests\AwardMovieFindByIdRequest;
 use App\Http\Requests\CreateAwardMovieRequest;
-use App\Repositories\Contracts\AwardArtistExceptionInterface;
+use App\Http\Requests\RemoveAwardMovieFromOscarRequest;
 use App\Repositories\Contracts\AwardMovieExceptionInterface;
 use Illuminate\Http\JsonResponse;
 
@@ -28,12 +29,12 @@ class AwardMovieController extends Controller
         return $this->exception->findById($id);
     }
 
-    public function addAwardToOscar(AddAwardToOscarRequest $request, string $year, string $awardArtistId):JsonResponse
+    public function addAwardToOscar(AddAwardMovieToOscarRequest $request, string $year, string $awardMovieId):JsonResponse
     {
-        return $this->exception->addAwardToOscar($year, $awardArtistId);
+        return $this->exception->addAwardToOscar($year, $awardMovieId);
     }
 
-    public function removeAwardFromOscar(RemoveAwardFromOscarRequest $request, string $year, string $awardArtistId):JsonResponse
+    public function removeAwardFromOscar(RemoveAwardMovieFromOscarRequest $request, string $year, string $awardArtistId):JsonResponse
     {
         return $this->exception->removeAwardFromOscar($year, $awardArtistId);
     }

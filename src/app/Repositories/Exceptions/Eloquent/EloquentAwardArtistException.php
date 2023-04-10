@@ -48,8 +48,8 @@ class EloquentAwardArtistException extends BaseEloquentException implements Awar
 
     public function addAwardToOscar(string $year, string $awardArtistId):JsonResponse
     {
-        $attach = $this->repository->addAwardToOscar($year, $awardArtistId);
-        return SuccessResponse::handle("The award has been added to the ceremony.", $attach->toArray());
+        $this->repository->addAwardToOscar($year, $awardArtistId);
+        return SuccessResponse::handle("The award has been added to the ceremony.");
     }
 
     public function removeAwardFromOscar(string $year, string $awardArtistId):JsonResponse

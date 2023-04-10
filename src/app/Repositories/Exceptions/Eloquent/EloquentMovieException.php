@@ -13,6 +13,7 @@ class EloquentMovieException extends BaseEloquentException implements MovieExcep
     {
         return EloquentMovieRepository::class;
     }
+
     public function store(array $data): JsonResponse
     {
         $movie = $this->repository->store($data);
@@ -25,15 +26,33 @@ class EloquentMovieException extends BaseEloquentException implements MovieExcep
         return SuccessResponse::handle("Movie has been registered.", $movie->toArray());
     }
 
+    public function findById(string $id): JsonResponse
+    {
+        $movie = $this->repository->findById($id);
+        return SuccessResponse::handle("Award has been found.", $movie->toArray());
+    }
+
     public function delete(string $id): JsonResponse
     {
         // TODO: Implement delete() method.
     }
 
-    public function findById(string $id): JsonResponse
+    public function addNomineeMovieToOscar(string $yearOscar, array $data): JsonResponse
     {
-        $movie = $this->repository->findById($id);
-        return SuccessResponse::handle("Award has been found.", $movie->toArray());
+        $this->repository->addNomineeMovieToOscar($yearOscar, $data);
+        return SuccessResponse::handle("Nominee has been registered to this award.");
+    }
+
+    public function removeNomineeMovieFromOscar(string $yearOscar, array $data): JsonResponse
+    {
+        $this->repository->removeNomineeMovieFromOscar($yearOscar, $data);
+        return SuccessResponse::handle("Nominee has been deleted from the ceremony");
+    }
+
+    public function nomineeWinnerOrNoWinner(string $yearOscar, array $data): JsonResponse
+    {
+        $this->repository->nomineeWinnerOrNoWinner($yearOscar, $data);
+        return SuccessResponse::handle("Nominee has been updated to winner.");
     }
 
     public function getRateInSiteRating(): JsonResponse
@@ -41,3 +60,4 @@ class EloquentMovieException extends BaseEloquentException implements MovieExcep
         // TODO: Implement getRateInSiteRating() method.
     }
 }
+

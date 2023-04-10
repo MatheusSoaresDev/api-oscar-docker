@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddAwardToOscarRequest;
+use App\Http\Requests\AddAwardArtistToOscarRequest;
 use App\Http\Requests\CreateOscarRequest;
 use App\Http\Requests\DeleteOscarByYearRequest;
 use App\Http\Requests\FindOscarByYearRequest;
-use App\Http\Requests\RemoveAwardFromOscarRequest;
+use App\Http\Requests\RemoveAwardArtistFromOscarRequest;
 use App\Http\Requests\UpdateOscarRequest;
 use App\Repositories\Contracts\OscarExceptionInterface;
 use Illuminate\Http\JsonResponse;

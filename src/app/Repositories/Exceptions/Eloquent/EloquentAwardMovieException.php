@@ -39,11 +39,13 @@ class EloquentAwardMovieException extends BaseEloquentException implements Award
 
     public function addAwardToOscar(string $year, string $awardMovieId): JsonResponse
     {
-        // TODO: Implement addAwardToOscar() method.
+        $this->repository->addAwardToOscar($year, $awardMovieId);
+        return SuccessResponse::handle("The award has been added to the ceremony.");
     }
 
     public function removeAwardFromOscar(string $year, string $awardMovieId): JsonResponse
     {
-        // TODO: Implement removeAwardFromOscar() method.
+        $this->repository->removeAwardFromOscar($year, $awardMovieId);
+        return SuccessResponse::handle("The award has been removed from the ceremony.");
     }
 }

@@ -49,8 +49,18 @@ class Oscar extends Model
         return $this->belongsToMany(AwardArtist::class, 'oscar_award_artist', 'oscar_id', 'awardartist_id')->withTimestamps();
     }
 
+    public function awardMoviesRelation(): BelongsToMany
+    {
+        return $this->belongsToMany(AwardMovie::class, 'oscar_award_movie', 'oscar_id', 'awardmovie_id')->withTimestamps();
+    }
+
     public function awardArtists(): HasMany
     {
         return $this->hasMany(OscarAwardArtist::class);
+    }
+
+    public function awardMovies(): HasMany
+    {
+        return $this->hasMany(OscarAwardMovie::class);
     }
 }

@@ -39,3 +39,7 @@ Route::patch("/artist/oscar/winner/{year}", [ArtistController::class, "nomineeWi
 Route::post("/movie", [MovieController::class, "store"]);
 Route::get("/movie/{id}", [MovieController::class, "findById"]);
 Route::put("/movie/{id}", [MovieController::class, "update"]);
+
+Route::post("/movie/oscar/nominee/{year}", [MovieController::class, "addNomineeMovieToOscar"]);
+Route::delete("/movie/oscar/nominee/{year}", [MovieController::class, "removeNomineeMovieFromOscar"]);
+Route::patch("/movie/oscar/winner/{year}", [MovieController::class, "nomineeWinnerOrNoWinner"]);

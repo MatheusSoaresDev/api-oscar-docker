@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class RemoveAwardFromOscarRequest extends FormRequest
+class AddNomineeMovieToOscarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,24 +26,27 @@ class RemoveAwardFromOscarRequest extends FormRequest
     {
         return [
             "year" => "required|exists:oscar,year",
-            "awardArtist_id" => "required|exists:award_artist,id",
+            "awardMovieId" => "required|exists:award_movie,id",
+            "movieId" => "required|exists:movie,id",
+            "winner" => "required|boolean",
         ];
     }
 
-    protected function prepareForValidation()
+    protected function prepareForValidation(): void
     {
         $this->merge(["year" => $this->route("year")]);
-        $this->merge(["awardArtist_id" => $this->route("awardArtistId")]);
     }
 
     public function messages(): array
     {
         $year = $this->route("year");
-        $awardArtistId = $this->route("awardArtistId");
+        $awardMovieId = $this->get("awardMovieId");
+        $movieId = $this->get("movieId");
 
         return [
-            "year.exists" => "Ceremony hasn't been found on ".$year.".",
-            "awardArtist_id.exists" => "Award hasn't been found with id: ".$awardArtistId.".",
+            "year.exists" => "Ceremony hasn't been found on $year.",
+            "awardMovieId.exists" => "Award hasn't been found with id: $awardMovieId.",
+            "movieId.exists" => "Movie hasn't been found with id: $movieId.",
         ];
     }
 
