@@ -4,29 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Repository de premios de filmes criado.">
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/ReadOnlyInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/Verifications/NomineeMovieVerification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4147fe9a-d3a8-4a95-b04e-181f00a527cc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/AwardArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/AwardArtistController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/AwardMovieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/AwardMovieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/MovieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/MovieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/OscarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Requests/AddAwardToOscarRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Requests/AddAwardArtistToOscarRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Requests/RemoveAwardFromOscarRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Requests/RemoveAwardArtistFromOscarRequest.php" afterDir="false" />
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Criação e remocao de indicação de filmes">
       <change beforePath="$PROJECT_DIR$/src/app/Models/Oscar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Oscar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardMovieRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/AwardMovieRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardArtistRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardMovieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentAwardMovieRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentMovieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentMovieRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardArtistException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardArtistException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardMovieException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentAwardMovieException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentMovieException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentMovieException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +234,7 @@
       <workItem from="1680717495654" duration="246000" />
       <workItem from="1680876682967" duration="3719000" />
       <workItem from="1681072503009" duration="115000" />
-      <workItem from="1681072645419" duration="8581000" />
+      <workItem from="1681072645419" duration="8887000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
@@ -361,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680880401951</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Criação e remocao de indicação de filmes">
+      <created>1681096013506</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681096013506</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +370,8 @@
     <MESSAGE value="Endpoint para retornar todas as cerimonias implementado." />
     <MESSAGE value="Alteração de status de vencedor implementado." />
     <MESSAGE value="Repository de premios de filmes criado." />
-    <option name="LAST_COMMIT_MESSAGE" value="Repository de premios de filmes criado." />
+    <MESSAGE value="Criação e remocao de indicação de filmes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação e remocao de indicação de filmes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

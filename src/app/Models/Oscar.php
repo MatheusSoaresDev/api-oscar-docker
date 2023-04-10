@@ -29,7 +29,8 @@ class Oscar extends Model
         "city",
         //"hosts",
         //"curiosities",
-        "awardArtists"
+        "awardArtists",
+        "awardMovies"
     ];
     public $timestamps = true;
     protected $keyType = 'string';

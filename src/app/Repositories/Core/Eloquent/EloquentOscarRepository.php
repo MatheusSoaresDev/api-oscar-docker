@@ -33,7 +33,8 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
             "curiosities",
             "awardArtists.award",
             "awardArtists.nomineeArtists.artist",
-            "awardArtists.nomineeArtists.movie"
+            "awardArtists.nomineeArtists.movie",
+            "awardMovies.award",
         ])->paginate(5);
     }
 
@@ -52,7 +53,15 @@ class EloquentOscarRepository extends BaseEloquentRepository implements OscarRep
     public function findOscarByYear(int $year)
     {
         return $this->entity->whereYear("date", $year)
-            ->with(["hosts", "curiosities", "awardArtists.award", "awardArtists.nomineeArtists.artist", "awardArtists.nomineeArtists.movie"])
+            ->with([
+                "hosts",
+                "curiosities",
+                "awardArtists.award",
+                "awardArtists.nomineeArtists.artist",
+                "awardArtists.nomineeArtists.movie",
+                "awardMovies.award",
+                "awardMovies.nomineeMovies.movie",
+            ])
             ->firstOrFail();
     }
 }
