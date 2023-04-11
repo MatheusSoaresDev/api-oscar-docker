@@ -34,7 +34,8 @@ class EloquentMovieException extends BaseEloquentException implements MovieExcep
 
     public function delete(string $id): JsonResponse
     {
-        // TODO: Implement delete() method.
+        $this->repository->delete($id);
+        return SuccessResponse::handle("Movie has been deleted.");
     }
 
     public function addNomineeMovieToOscar(string $yearOscar, array $data): JsonResponse
@@ -54,10 +55,4 @@ class EloquentMovieException extends BaseEloquentException implements MovieExcep
         $this->repository->nomineeWinnerOrNoWinner($yearOscar, $data);
         return SuccessResponse::handle("Nominee has been updated to winner.");
     }
-
-    public function getRateInSiteRating(): JsonResponse
-    {
-        // TODO: Implement getRateInSiteRating() method.
-    }
 }
-

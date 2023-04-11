@@ -2,11 +2,9 @@
 
 namespace App\Repositories\Core\Eloquent;
 
-use App\Models\Movie;
-use App\Models\OscarAwardArtist;
-use App\Models\OscarAwardMovie;
-use App\Repositories\Contracts\MovieRepositoryInterface;
-use App\Repositories\Contracts\OscarRepositoryInterface;
+use App\Exceptions\NomineeIsAlreadyWinner;
+use App\Models\{OscarAwardMovie, Movie};
+use App\Repositories\Contracts\{MovieRepositoryInterface, OscarRepositoryInterface};
 use App\Repositories\Core\Eloquent\Verifications\NomineeMovieVerification;
 use Illuminate\Support\Str;
 
@@ -50,12 +48,19 @@ class EloquentMovieRepository extends BaseEloquentRepository implements MovieRep
 
     public function nomineeWinnerOrNoWinner(string $yearOscar, array $data):void
     {
-        // TODO: Implement nomineeWinnerOrNoWinner() method.
-    }
+        $oscarAward = $this->getOscarAwardMovie($yearOscar, $data["awardMovieId"]);
+        $winner = $data["winner"] ? "winner" : "noWinner";
 
-    public function getRateInSiteRating()
-    {
-        // TODO: Implement getRateInSiteRating() method.
+        $this->verify->verifyIfExistsItAwardInCeremony($oscarAward);
+        $this->verify->verifyIfExistsNominee($oscarAward, $data);
+
+        $nominee = $oscarAward->nomineeMovies()->where("movie_id", $data["movieId"])->first();
+        $nominee->winner = $data["winner"];
+
+        if(!$nominee->isDirty()){
+            throw new NomineeIsAlreadyWinner(Movie::NOMINEE_WINNER_MESSAGE[$winner]);
+        }
+        $nominee->save();
     }
 
     private function getOscarAwardMovie(string $yearOscar, $awardMovieId): OscarAwardMovie

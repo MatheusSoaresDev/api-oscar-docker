@@ -31,4 +31,9 @@ class Movie extends Model
     protected $table = "movie";
     public $timestamps = true;
     protected $keyType = 'string';
+
+    const NOMINEE_WINNER_MESSAGE = [
+        "winner" => "This movie is already winner in this award.",
+        "noWinner" => "This movie is not winner in this award."
+    ];
 }

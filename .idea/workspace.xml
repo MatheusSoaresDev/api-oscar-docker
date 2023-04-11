@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Criação e remocao de indicação de filmes">
-      <change beforePath="$PROJECT_DIR$/src/app/Models/Oscar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Oscar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentOscarRepository.php" afterDir="false" />
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Exibindo dados de indicado de artistas e filmes no find year.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/MovieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/MovieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Models/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Movie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieExceptionInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Contracts/MovieRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentMovieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Core/Eloquent/EloquentMovieRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentMovieException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Repositories/Exceptions/Eloquent/EloquentMovieException.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +239,8 @@
       <workItem from="1680717495654" duration="246000" />
       <workItem from="1680876682967" duration="3719000" />
       <workItem from="1681072503009" duration="115000" />
-      <workItem from="1681072645419" duration="8887000" />
+      <workItem from="1681072645419" duration="9157000" />
+      <workItem from="1681156690026" duration="3701000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
@@ -348,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681096013506</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Exibindo dados de indicado de artistas e filmes no find year.">
+      <created>1681096478024</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1681096478024</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +384,8 @@
     <MESSAGE value="Alteração de status de vencedor implementado." />
     <MESSAGE value="Repository de premios de filmes criado." />
     <MESSAGE value="Criação e remocao de indicação de filmes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação e remocao de indicação de filmes" />
+    <MESSAGE value="Exibindo dados de indicado de artistas e filmes no find year." />
+    <option name="LAST_COMMIT_MESSAGE" value="Exibindo dados de indicado de artistas e filmes no find year." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

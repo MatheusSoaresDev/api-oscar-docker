@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddNomineeMovieToOscarRequest;
 use App\Http\Requests\CreateMovieRequest;
 use App\Http\Requests\FindByIdMovieRequest;
+use App\Http\Requests\NomineeWinnerOrNoWinnerMovieRequest;
 use App\Http\Requests\RemoveNomineeMovieFromOscarRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Repositories\Contracts\MovieExceptionInterface;
@@ -47,9 +48,9 @@ class MovieController extends Controller
         return $this->exception->removeNomineeMovieFromOscar($year, $data);
     }
 
-    public function nomineeWinnerOrNoWinner(NomineeWinnerOrNoWinnerRequest $request, int $year): JsonResponse
+    public function nomineeWinnerOrNoWinner(NomineeWinnerOrNoWinnerMovieRequest $request, int $year): JsonResponse
     {
-        $data = $request->only(["awardArtistId", "artistId", "winner"]);
+        $data = $request->only(["awardMovieId", "movieId", "winner"]);
         return $this->exception->nomineeWinnerOrNoWinner($year, $data);
     }
 }
