@@ -32,7 +32,7 @@ class CreateRepository extends Command
 
         // Cria o arquivo da classe
         $file = app_path("{$name}.php");
-        file_put_contents($file, "teste");
+        file_put_contents($file, "2019_12_14_000001_create_personal_access_tokens_table.php");
 
         $this->info("Classe $name criada com sucesso!");
     }

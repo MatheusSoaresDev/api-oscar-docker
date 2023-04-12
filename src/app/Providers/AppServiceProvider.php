@@ -8,6 +8,7 @@ use App\Models\Oscar;
 use App\Observers\ArtistObserver;
 use App\Observers\MovieObserver;
 use App\Observers\OscarObserver;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Schema::defaultStringLength(191);
+
         Oscar::observe(OscarObserver::class);
         Artist::observe(ArtistObserver::class);
         Movie::observe(MovieObserver::class);
