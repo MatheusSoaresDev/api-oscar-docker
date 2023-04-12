@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="Exibindo dados de indicado de artistas e filmes no find year." />
+    <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="npm lock json;">
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +179,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/mt/projetos/ghostnet",
+    "last_opened_file_path": "/home/mt/Documents/Projetos/Laravel/api-oscar-docker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -234,6 +237,7 @@
       <workItem from="1681072645419" duration="9157000" />
       <workItem from="1681156690026" duration="3701000" />
       <workItem from="1681217995138" duration="40000" />
+      <workItem from="1681263651895" duration="1665000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
@@ -354,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681096478024</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="npm lock json;">
+      <created>1681263756976</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1681263756976</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +389,8 @@
     <MESSAGE value="Repository de premios de filmes criado." />
     <MESSAGE value="Criação e remocao de indicação de filmes" />
     <MESSAGE value="Exibindo dados de indicado de artistas e filmes no find year." />
-    <option name="LAST_COMMIT_MESSAGE" value="Exibindo dados de indicado de artistas e filmes no find year." />
+    <MESSAGE value="npm lock json;" />
+    <option name="LAST_COMMIT_MESSAGE" value="npm lock json;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
