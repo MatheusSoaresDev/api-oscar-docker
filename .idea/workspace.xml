@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df1d281c-a59c-4a06-bacb-51c54c982e27" name="Changes" comment="remove procfile.">
+      <change afterPath="$PROJECT_DIR$/src/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +239,7 @@
       <workItem from="1681217995138" duration="40000" />
       <workItem from="1681263651895" duration="2934000" />
       <workItem from="1681316302957" duration="410000" />
-      <workItem from="1681316723659" duration="614000" />
+      <workItem from="1681316723659" duration="694000" />
     </task>
     <task id="LOCAL-00001" summary="Associar premiacoes à cerimonia finalizado.">
       <created>1679116832958</created>
