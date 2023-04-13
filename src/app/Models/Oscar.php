@@ -27,8 +27,8 @@ class Oscar extends Model
         "local",
         "date",
         "city",
-        //"hosts",
-        //"curiosities",
+        "hosts",
+        "curiosities",
         "awardArtists",
         "awardMovies"
     ];

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('curiosity', function (Blueprint $table) {
             $table->uuid("id")->primary();
-            $table->string("content");
+            $table->longText("content");
 
             $table->string("oscar_id");
             $table->foreign('oscar_id')->references('id')->on('oscar')->onDelete('cascade');;

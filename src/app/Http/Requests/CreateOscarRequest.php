@@ -29,7 +29,7 @@ class CreateOscarRequest extends FormRequest
             "year" => "required|unique:oscar",
             "edition" => "required|unique:oscar",
             "local" => "required",
-            "date" => "required|date_format:Y-m-d|after:".date("1929-05-16")."|before_or_equal:".date("Y-m-d"),
+            "date" => "required|date_format:Y-m-d|after:".date("1929-05-15")."|before_or_equal:".date("Y-m-d"),
             "city" => "required",
             "hosts" => "required|array",
             "hosts.*" => "required",
