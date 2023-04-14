@@ -26,10 +26,11 @@ jobs:
       - name: Install dependencies
         run: |
           cd src
-          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-          php composer-setup.php --quiet
-          php -r "unlink('composer-setup.php');"
-          php composer.phar install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+          if [ ! -d vendor ]; then
+            composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+          else
+            composer update --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+          fi
 
       - name: Generate key
         run: |
