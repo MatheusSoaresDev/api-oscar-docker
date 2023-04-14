@@ -27,9 +27,9 @@ jobs:
         run: |
           cd src
           if [ ! -d vendor ]; then
-            composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            composer install --ignore-platform-reqs --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           else
-            composer update --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            composer update --ignore-platform-reqs --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           fi
 
       - name: Generate key
