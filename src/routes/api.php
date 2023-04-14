@@ -4,7 +4,8 @@ use App\Http\Controllers\{ArtistController,
     AwardArtistController,
     AwardMovieController,
     MovieController,
-    OscarController};
+    OscarController
+};
 use Illuminate\Support\Facades\Route;
 
 /* Routes Oscar Ceremony */
