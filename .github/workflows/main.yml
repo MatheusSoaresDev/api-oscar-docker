@@ -19,7 +19,7 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: teste
-        run: teste
+        run: mkdir teste
 
       - name: Install dependencies
         run: |
