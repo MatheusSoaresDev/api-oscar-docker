@@ -16,10 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Copy .env.example to .env
-        run: |
-          if [ ! -f .env ]; then
-            cp .env.example .env
-          fi
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Install dependencies
         run: |
